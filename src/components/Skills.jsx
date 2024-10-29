@@ -19,7 +19,7 @@ const skills = [
       { name: "Sass", icon: <DiSass className="text-pink-600" /> },
       {
         name: "Tailwind",
-        icon: <RiTailwindCssFill className="text-purple-600" />,
+        icon: <RiTailwindCssFill className="text-blue-600" />,
       },
       {
         name: "JavaScript",
