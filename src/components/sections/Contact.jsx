@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
-import Reveal from "./Reveal";
+import Reveal from "../UI/Reveal";
 
 const Contact = () => {
   return (

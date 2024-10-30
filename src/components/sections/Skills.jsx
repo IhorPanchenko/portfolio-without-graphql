@@ -9,7 +9,7 @@ import {
   DiNodejsSmall,
   DiReact,
 } from "react-icons/di";
-import Reveal from "./Reveal";
+import Reveal from "../UI/Reveal";
 
 const skills = [
   {

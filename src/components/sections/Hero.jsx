@@ -12,8 +12,8 @@ import {
   DiNodejsSmall,
   DiReact,
 } from "react-icons/di";
-import ShinyEffect from "./ShinyEffect";
-import profilepic from "../assets/profpic.png";
+import ShinyEffect from "../UI/ShinyEffect";
+import profilepic from "../../assets/images/profpic.png";
 
 const Hero = () => {
   return (
