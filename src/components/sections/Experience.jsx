@@ -5,43 +5,52 @@ const experiences = [
   {
     company: "First Company",
     period: "2020 - Present",
-    description: "Description of your experience in this company.",
+    description:
+      "Led the development of innovative solutions to enhance user experience and increase customer satisfaction.",
   },
   {
     company: "Second Company",
-    period: "2020 - Present",
-    description: "Description of your experience in this company.",
+    period: "2018 - 2020",
+    description:
+      "Collaborated with cross-functional teams to define and implement new features for the product line.",
   },
   {
     company: "Third Company",
-    period: "2020 - Present",
-    description: "Description of your experience in this company.",
+    period: "2017 - 2018",
+    description:
+      "Optimized the performance of web applications, leading to a 25% reduction in load times.",
   },
   {
     company: "Fourth Company",
-    period: "2020 - Present",
-    description: "Description of your experience in this company.",
+    period: "2016 - 2017",
+    description:
+      "Assisted in the transition of legacy systems to modern technologies, enhancing system reliability.",
   },
 ];
 
 const Experience = () => {
   return (
-    <div className="p-8 max-w-[600px] mx-auto">
-      <h1 className="text-4xl text-gray-200 font-bold text-center mb-12">
+    <section
+      className="p-8 max-w-[600px] mx-auto"
+      aria-labelledby="experience-heading"
+    >
+      <h1
+        id="experience-heading"
+        className="text-4xl text-gray-200 font-bold text-center mb-12"
+      >
         Experience
       </h1>
 
       <motion.div className="space-y-8" initial="hidden" animate="visible">
-        {experiences.map((experience, index) => (
-          <Reveal>
+        {experiences.map((experience) => (
+          <Reveal key={experience.company}>
             <motion.div
-              key={index}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 1 }}
-              className="border border-purple-600 p-6 rounded-lg 
-            shadow-md hover:shadow-xl transition-shadow duration-300 bg-purple-700/10"
+              className="border border-purple-600 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 bg-purple-700/10"
+              role="article"
             >
               <h2 className="text-gray-100 text-2xl font-semibold">
                 {experience.company}
@@ -52,7 +61,7 @@ const Experience = () => {
           </Reveal>
         ))}
       </motion.div>
-    </div>
+    </section>
   );
 };
 

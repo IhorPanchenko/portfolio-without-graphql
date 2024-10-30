@@ -1,7 +1,13 @@
 import { motion, useInView, useAnimation } from "framer-motion";
 import { useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 
-const Reveal = ({ children, width = "fit-content" }) => {
+const Reveal = ({
+  children,
+  width = "fit-content",
+  duration = 0.5,
+  delay = 0.25,
+}) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const mainControls = useAnimation();
@@ -13,7 +19,7 @@ const Reveal = ({ children, width = "fit-content" }) => {
   }, [isInView, mainControls]);
 
   return (
-    <div ref={ref} style={{ position: "relative", width, overflow: "hidden" }}>
+    <div ref={ref} className="relative overflow-hidden" style={{ width }}>
       <motion.div
         variants={{
           hidden: { opacity: 0, y: 75 },
@@ -21,12 +27,19 @@ const Reveal = ({ children, width = "fit-content" }) => {
         }}
         initial="hidden"
         animate={mainControls}
-        transition={{ duration: 0.5, delay: 0.25 }}
+        transition={{ duration, delay }}
       >
         {children}
       </motion.div>
     </div>
   );
+};
+
+Reveal.propTypes = {
+  children: PropTypes.node.isRequired,
+  width: PropTypes.string,
+  duration: PropTypes.number,
+  delay: PropTypes.number,
 };
 
 export default Reveal;

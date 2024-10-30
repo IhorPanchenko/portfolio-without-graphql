@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
+  const offset = 50;
+
   const menuVariants = {
     open: {
       x: 0,
@@ -22,6 +24,12 @@ const Navbar = () => {
     },
   };
 
+  const navLinks = [
+    { name: "About", to: "skills" },
+    { name: "Portfolio", to: "portfolio" },
+    { name: "Contact", to: "contact" },
+  ];
+
   const toggleNav = () => {
     setNav(!nav);
   };
@@ -31,79 +39,67 @@ const Navbar = () => {
   };
 
   return (
-    <div className="fixed top-0 left-0 w-full bg-opacity-70 backdrop-blur-md z-50">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-opacity-70 backdrop-blur-md">
       <div
-        className=" max-w-[1300px] mx-auto flex justify-between 
-      text-gray-200 text-xl items-center px-12 h-20"
+        className="max-w-[1300px] mx-auto flex items-center justify-between h-20 
+      px-12 text-xl text-gray-200"
       >
-        <a href="#">J.Doe</a>
+        <a href="#" className="font-bold">
+          J.Doe
+        </a>
 
-        <ul className="hidden md:flex gap-12 z-10 cursor-pointer">
-          <li>
-            <Link to="skills" smooth={true} offset={50} duration={500}>
-              About
-            </Link>
-          </li>
-          <li>
-            <Link to="portfolio" smooth={true} offset={50} duration={500}>
-              Portfolio
-            </Link>
-          </li>
-          <li>
-            <Link to="contact" smooth={true} offset={50} duration={500}>
-              Contact
-            </Link>
-          </li>
+        {/* Desktop Navigation */}
+        <ul className="hidden md:flex z-10 gap-12 cursor-pointer">
+          {navLinks.map((link) => (
+            <li key={link.name}>
+              <Link
+                to={link.to}
+                smooth={true}
+                offset={offset}
+                duration={500}
+                className="hover:text-purple-400 transition duration-300"
+              >
+                {link.name}
+              </Link>
+            </li>
+          ))}
         </ul>
 
-        <div onClick={toggleNav} className="md:hidden z-50 text-gray-200">
+        {/* Hamburger Menu */}
+        <button
+          onClick={toggleNav}
+          className="md:hidden z-50 text-gray-200 hover:text-purple-400 transition duration-300"
+          aria-label={nav ? "Close navigation menu" : "Open navigation menu"}
+        >
           {nav ? <AiOutlineClose size={30} /> : <AiOutlineMenu size={30} />}
-        </div>
+        </button>
 
+        {/* Mobile Navigation */}
         <motion.div
           initial={false}
           animate={nav ? "open" : "closed"}
           variants={menuVariants}
-          className="fixed top-0 left-0 w-full min-h-screen bg-gray-900 z-40"
+          className="fixed top-0 left-0 w-full min-h-screen z-40 bg-gray-900"
         >
-          <ul className="font-semibold text-4xl space-y-8 mt-24 text-center">
-            <li>
-              <Link
-                to="skills"
-                onClick={closeNav}
-                smooth={true}
-                offset={50}
-                duration={500}
-              >
-                About
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="portfolio"
-                onClick={closeNav}
-                smooth={true}
-                offset={50}
-                duration={500}
-              >
-                Portfolio
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="contact"
-                onClick={closeNav}
-                smooth={true}
-                offset={50}
-                duration={500}
-              >
-                Contact
-              </Link>
-            </li>
+          <ul className="text-center text-4xl font-semibold mt-24 space-y-8 cursor-pointer">
+            {navLinks.map((link) => (
+              <li key={link.name}>
+                <Link
+                  to={link.to}
+                  onClick={closeNav}
+                  smooth={true}
+                  offset={offset}
+                  duration={500}
+                  className="hover:text-purple-400 transition duration-300"
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
           </ul>
         </motion.div>
       </div>
-    </div>
+    </nav>
   );
 };
 
