@@ -18,7 +18,7 @@ import profilepic from "../../assets/images/profpic.png";
 const Hero = () => {
   return (
     <section className="mt-24 max-w-[1200px] mx-auto relative">
-      <div className="grid md:grid-cols-2 place-items-center gap-8">
+      <div className="grid md:grid-cols-2 gap-8 place-items-center">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -129,7 +129,7 @@ const Hero = () => {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1, delay: 2 }}
-        className="flex flex-row text-7xl px-12 md:px-0 w-full justify-center items-center py-24"
+        className="flex flex-row text-7xl px-4 md:px-0 w-full justify-center items-center py-24"
       >
         <p className="text-gray-200 mr-6">My Tech Stack</p>
         <DiHtml5 className="text-orange-600 mx-2" />

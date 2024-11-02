@@ -41,7 +41,11 @@ const Experience = () => {
         Experience
       </h1>
 
-      <motion.div className="space-y-8" initial="hidden" animate="visible">
+      <motion.div
+        className="space-y-8 md:space-y-12 lg:space-y-16 mx-4 md:mx-0"
+        initial="hidden"
+        animate="visible"
+      >
         {experiences.map((experience) => (
           <Reveal key={experience.company}>
             <motion.div

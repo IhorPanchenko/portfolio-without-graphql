@@ -2,9 +2,9 @@ import Reveal from "../UI/Reveal";
 
 const Contact = () => {
   const statistics = [
-    { count: "11+", label: "Projects" },
-    { count: "5+", label: "years of experience" },
-    { count: "30+", label: "happy clients" },
+    { count: "C1", label: "English" },
+    { count: "B2", label: "German" },
+    { count: "D1", label: "Example" },
   ];
 
   return (
@@ -26,13 +26,13 @@ const Contact = () => {
             </div>
 
             {/* Statistics display */}
-            <div className="flex mt-10 items-center gap-7">
+            <div className="flex justify-center md:justify-start my-10 md:mt-4 md:mb-0 items-center gap-7">
               {statistics.map((item, index) => (
-                <div key={index} className="bg-gray-800/40 p-4 rounded-lg">
-                  <h3 className="text-2xl md:text-4xl font-semibold text-white">
+                <div key={index} className="bg-gray-800/40 p-6 rounded-lg">
+                  <h3 className="text-3xl md:text-4xl font-semibold text-white">
                     {item.count}
                   </h3>
-                  <p className="text-xs md:text-base">
+                  <p className="text-sm md:text-base">
                     <span>{item.label}</span>
                   </p>
                 </div>
@@ -44,7 +44,7 @@ const Contact = () => {
           <form
             action="https://getform.io/f/bkkkkgob"
             method="POST"
-            className="max-w-6xl p-5 md:p-12"
+            className="flex flex-col justify-between px-5 w-full h-full"
             id="form"
             aria-label="Contact Form"
           >
@@ -60,7 +60,7 @@ const Contact = () => {
               id="name"
               placeholder="Your Name"
               name="name"
-              className="mb-2 w-full rounded-md border border-purple-600 py-2 pl-2 pr-4"
+              className="w-full mb-3 p-3 rounded-md border border-purple-600"
               required
             />
             {/* Email input field */}
@@ -72,7 +72,7 @@ const Contact = () => {
               id="email"
               placeholder="Your Email"
               name="email"
-              className="mb-2 w-full rounded-md border border-purple-600 py-2 pl-2 pr-4"
+              className="w-full mb-3 p-3 rounded-md border border-purple-600"
               required
             />
             {/* Message textarea */}
@@ -84,13 +84,14 @@ const Contact = () => {
               cols="30"
               rows="4"
               placeholder="Your Message"
-              className="mb-2 w-full rounded-md border border-purple-600 py-2 pl-2 pr-4"
+              className="w-full mb-3 p-3 rounded-md border border-purple-600"
               required
             />
             {/* Submit button */}
             <button
               type="submit"
-              className="w-full py-3 rounded-md text-gray-100 font-semibold text-xl bg-primary-color"
+              className="w-full py-3 rounded-md text-gray-100 font-semibold bg-purple-500 
+              hover:bg-purple-600"
             >
               Send Message
             </button>

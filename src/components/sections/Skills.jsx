@@ -65,9 +65,8 @@ const Skills = () => {
           {skills.map((skill, index) => (
             <article
               key={index}
-              className="border border-purple-900 p-6 rounded-lg 
-              bg-purple-900/20 shadow-lg w-full md:w-1/2 transition-transform 
-              duration-300 transform hover:scale-105"
+              className="border border-purple-900 p-6 rounded-lg bg-purple-900/20 
+              shadow-lg w-full md:w-1/2"
               aria-labelledby={`skill-${index}`}
             >
               <h3

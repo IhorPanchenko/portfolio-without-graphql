@@ -80,7 +80,7 @@ const Portfolio = () => {
               </div>
 
               {/* Project details */}
-              <div className="w-full md:w-1/2 p-4 flex flex-col justify-center">
+              <div className="w-full md:w-1/2 flex flex-col justify-center p-4">
                 <h3 className="text-2xl font-semibold text-gray-200 mb-4">
                   {title}
                 </h3>

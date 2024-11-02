@@ -42,14 +42,14 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 w-full z-50 bg-opacity-70 backdrop-blur-md">
       <div
         className="max-w-[1300px] mx-auto flex items-center justify-between h-20 
-      px-12 text-xl text-gray-200"
+        px-6 md:px-12 text-xl text-gray-200"
       >
         <a href="#" className="font-bold">
           J.Doe
         </a>
 
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex z-10 gap-12 cursor-pointer">
+        <ul className="hidden md:flex gap-6 lg:gap-12 cursor-pointer">
           {navLinks.map((link) => (
             <li key={link.name}>
               <Link
@@ -57,7 +57,7 @@ const Navbar = () => {
                 smooth={true}
                 offset={offset}
                 duration={500}
-                className="hover:text-purple-400 transition duration-300"
+                className="hover:text-purple-400"
               >
                 {link.name}
               </Link>
@@ -68,7 +68,7 @@ const Navbar = () => {
         {/* Hamburger Menu */}
         <button
           onClick={toggleNav}
-          className="md:hidden z-50 text-gray-200 hover:text-purple-400 transition duration-300"
+          className="md:hidden z-50 text-gray-200 hover:text-purple-400"
           aria-label={nav ? "Close navigation menu" : "Open navigation menu"}
         >
           {nav ? <AiOutlineClose size={30} /> : <AiOutlineMenu size={30} />}
@@ -79,7 +79,7 @@ const Navbar = () => {
           initial={false}
           animate={nav ? "open" : "closed"}
           variants={menuVariants}
-          className="fixed top-0 left-0 w-full min-h-screen z-40 bg-gray-900"
+          className="fixed top-0 left-0 w-full min-h-screen bg-gray-900 p-8 text-center text-4xl"
         >
           <ul className="text-center text-4xl font-semibold mt-24 space-y-8 cursor-pointer">
             {navLinks.map((link) => (
