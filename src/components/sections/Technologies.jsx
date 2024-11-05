@@ -66,7 +66,7 @@ const Technologies = () => {
           animate="animate"
           className="rounded-2xl border-4 border-neutral-800 p-4"
         >
-          <DiHtml5 className="text-7xl text-orange-600" />
+          <DiCss3 className="text-7xl text-orange-600" />
         </motion.div>
         <motion.div
           variants={iconVariants(5)}
@@ -74,7 +74,7 @@ const Technologies = () => {
           animate="animate"
           className="rounded-2xl border-4 border-neutral-800 p-4"
         >
-          <DiHtml5 className="text-7xl text-orange-600" />
+          <DiJavascript1 className="text-7xl text-orange-600" />
         </motion.div>
         <motion.div
           variants={iconVariants(2)}
@@ -82,7 +82,7 @@ const Technologies = () => {
           animate="animate"
           className="rounded-2xl border-4 border-neutral-800 p-4"
         >
-          <DiHtml5 className="text-7xl text-orange-600" />
+          <DiNodejsSmall className="text-7xl text-orange-600" />
         </motion.div>
         <motion.div
           variants={iconVariants(6)}
@@ -98,7 +98,7 @@ const Technologies = () => {
           animate="animate"
           className="rounded-2xl border-4 border-neutral-800 p-4"
         >
-          <DiHtml5 className="text-7xl text-orange-600" />
+          <DiReact className="text-7xl text-orange-600" />
         </motion.div>
       </motion.div>
     </motion.div>

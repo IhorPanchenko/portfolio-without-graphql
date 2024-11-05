@@ -2,8 +2,8 @@ import { TypeAnimation } from "react-type-animation";
 import { animate, motion } from "framer-motion";
 import {
   AiOutlineGithub,
-  AiOutlineInstagram,
   AiOutlineLinkedin,
+  AiOutlineMail,
 } from "react-icons/ai";
 import ShinyEffect from "../UI/ShinyEffect";
 import profilepic from "../../assets/images/profpic.png";
@@ -23,16 +23,16 @@ const Hero = () => {
             {/* Type animation for role titles */}
             <TypeAnimation
               sequence={[
-                "Frontend Dev",
+                "Frontend Developer",
                 1000,
-                "Webdesigner",
+                "Web Developer",
                 1000,
-                "Consultant",
+                "UI Engineer",
                 1000,
               ]}
               speed={50}
               repeat={Infinity}
-              className="font-bold text-gray-100 text-xl md:text-5xl italic mb-4"
+              className="font-bold text-gray-100 text-xl md:text-3xl lg:text-5xl italic mb-4"
             />
             {/* Main greeting message */}
             <motion.p
@@ -40,10 +40,10 @@ const Hero = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.5 }}
-              className="text-gray-200 text-5xl md:text-7xl tracking-tight mb-4"
+              className="text-gray-200 text-3xl text-center lg:text-left md:text-5xl lg:text-6xl tracking-tight mb-4 uppercase"
             >
-              HEY, I AM <br />
-              <span className="text-purple-500">JOHN DOE</span>
+              Hey, I am <br />
+              <span className="text-purple-500">Ihor Panchenko</span>
             </motion.p>
 
             <motion.p
@@ -51,11 +51,12 @@ const Hero = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 1 }}
-              className="text-gray-300 max-w-[300px] md:max-w-[500px] text-lg md:text-2xl mb-6"
+              className="text-gray-300 max-w-[300px] md:max-w-[600px] text-center lg:text-left text-lg md:text-2xl mb-6"
             >
-              I am a passionate frontend developer with over * years of
-              experience. I am a passionate frontend developer with over * years
-              of experience.
+              I am a Junior Front-End Developer with experience in JavaScript
+              and React. I develop dynamic, responsive user interfaces and have
+              a good eye for design. Teamwork and continuous learning are
+              important to me in creating modern and innovative solutions.
             </motion.p>
 
             {/* Action buttons and social media links */}
@@ -81,7 +82,7 @@ const Hero = () => {
               <div className="flex gap-6 flex-row text-4xl md:text-6xl text-purple-400 z-20">
                 <motion.a
                   whileHover={{ scale: 1.2 }}
-                  href="#"
+                  href="https://github.com/IhorPanchenko"
                   aria-label="GitHub Profile"
                 >
                   <AiOutlineGithub />
@@ -89,7 +90,7 @@ const Hero = () => {
 
                 <motion.a
                   whileHover={{ scale: 1.2 }}
-                  href="#"
+                  href="https://www.linkedin.com"
                   aria-label="LinkedIn Profile"
                 >
                   <AiOutlineLinkedin />
@@ -97,17 +98,17 @@ const Hero = () => {
 
                 <motion.a
                   whileHover={{ scale: 1.2 }}
-                  href="#"
-                  aria-label="Instagram Profile"
+                  href="mailto:ipanchenko91@gmail.com"
+                  aria-label="Email"
                 >
-                  <AiOutlineInstagram />
+                  <AiOutlineMail />
                 </motion.a>
               </div>
             </motion.div>
           </div>
         </motion.div>
 
-        <div className="w-full lg:w-1/2 lg:p-8">
+        <div className="w-full mt-8 lg:mt-0 lg:w-1/2 lg:p-8">
           <div className="flex justify-center">
             {/* Profile image with fade-in effect */}
             <motion.img

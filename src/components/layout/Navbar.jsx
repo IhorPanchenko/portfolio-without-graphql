@@ -44,7 +44,11 @@ const Navbar = () => {
         className=" mx-auto flex items-center justify-between h-20 
         px-6 md:px-12 text-xl text-gray-200"
       >
-        <a href="#" className="font-bold">
+        <a
+          href="https://www.linkedin.com"
+          rel="noopener noreferrer"
+          className="font-bold hover:text-purple-400"
+        >
           I.Panchenko
         </a>
 
