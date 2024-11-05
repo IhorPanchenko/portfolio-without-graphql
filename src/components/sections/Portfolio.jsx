@@ -57,7 +57,7 @@ const projects = [
 
 const Portfolio = () => {
   return (
-    <section className="max-w-[1000px] mx-auto p-6 md:my-20" id="portfolio">
+    <section className=" mx-auto md:my-20" id="portfolio">
       <h2 className="text-3xl font-bold text-gray-200 mb-8">Portfolio</h2>
 
       {projects.map((project, index) => {
@@ -68,10 +68,10 @@ const Portfolio = () => {
             <div
               className={`flex flex-col md:flex-row ${
                 index % 2 !== 0 ? "md:flex-row-reverse" : ""
-              } mb-12`}
+              } gap-16 mb-12`}
             >
               {/* Project image */}
-              <div className="w-full md:w-1/2 p-4">
+              <div className="w-full md:w-1/2">
                 <img
                   src={img}
                   alt={title}

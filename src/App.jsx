@@ -6,21 +6,25 @@ import Skills from "./components/sections/Skills";
 import Portfolio from "./components/sections/Portfolio";
 import Experience from "./components/sections/Experience";
 import Contact from "./components/sections/Contact";
+import Technologies from "./components/sections/Technologies";
 
 export default function App() {
   return (
     <React.Fragment>
-      <Navbar />
+      <div className=" selection:bg-purple-400 selection:text-gray-800 relative overflow-hidden">
+        <Navbar />
 
-      <main>
-        <Hero />
-        <Skills />
-        <Portfolio />
-        <Experience />
-        <Contact />
-      </main>
+        <main className="max-w-[1300px] mx-auto px-8">
+          <Hero />
+          <Contact />
+          <Technologies />
+          <Skills />
+          <Portfolio />
+          <Experience />
+        </main>
 
-      <Footer />
+        <Footer />
+      </div>
     </React.Fragment>
   );
 }

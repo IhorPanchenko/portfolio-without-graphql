@@ -41,11 +41,11 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-opacity-70 backdrop-blur-md">
       <div
-        className="max-w-[1300px] mx-auto flex items-center justify-between h-20 
+        className=" mx-auto flex items-center justify-between h-20 
         px-6 md:px-12 text-xl text-gray-200"
       >
         <a href="#" className="font-bold">
-          J.Doe
+          I.Panchenko
         </a>
 
         {/* Desktop Navigation */}

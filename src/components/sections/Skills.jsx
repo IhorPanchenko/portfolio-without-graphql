@@ -42,7 +42,7 @@ const skills = [
 const Skills = () => {
   return (
     <section
-      className="max-w-[650px] mx-auto flex flex-col justify-center px-4 text-gray-200 pb-8 md:py-12"
+      className="max-w-[750px] mx-auto flex flex-col justify-center text-gray-200 pb-8 md:py-12"
       id="skills"
       aria-labelledby="skills-heading"
     >
@@ -52,8 +52,8 @@ const Skills = () => {
         </h2>
         <p className="text-center mb-8">
           I have worked on various frontend and fullstack projects. Check them{" "}
-          <a href="#" className="underline" aria-label="View my projects">
-            out here
+          <a href="#" aria-label="View my projects">
+            <span className="underline">out here</span>
           </a>
           .
         </p>

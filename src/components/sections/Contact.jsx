@@ -8,8 +8,11 @@ const Contact = () => {
   ];
 
   return (
-    <section className="px-6 max-w-[1000px] mx-auto md:my-12" id="contact">
+    <section className="mx-auto md:my-12" id="contact">
       <Reveal>
+        <h3 className="my-10 text-center text-4xl text-gray-200">
+          About <span>Me</span>
+        </h3>
         <div className="grid md:grid-cols-2 place-items-center">
           <div>
             {/* About Me section */}
@@ -17,7 +20,7 @@ const Contact = () => {
               <h3 className="text-4xl font-semibold mb-5">
                 About <span>Me</span>
               </h3>
-              <p className="text-justify leading-7 w-11/12 mx-auto">
+              <p className="text-justify leading-7 w-11/12">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
                 eos, quam vel quisquam, explicabo sit labore dignissimos optio
                 ratione quibusdam doloribus pariatur consequuntur sint.
