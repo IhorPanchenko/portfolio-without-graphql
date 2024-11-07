@@ -1,14 +1,24 @@
 import { TypeAnimation } from "react-type-animation";
-import { GET_HERO_CONTENT } from "../../graphql/queries";
-import { gql, useQuery } from "@apollo/client";
-import { animate, motion } from "framer-motion";
+import { useQuery } from "@apollo/client";
+import { motion } from "framer-motion";
 import {
   AiOutlineGithub,
   AiOutlineLinkedin,
   AiOutlineMail,
 } from "react-icons/ai";
-import ShinyEffect from "../UI/ShinyEffect";
+import { GET_HERO_CONTENT } from "../../graphql/queries";
 import profilepic from "../../assets/images/profpic.png";
+
+const SocialMediaLink = ({ href, ariaLabel, icon }) => (
+  <motion.a
+    whileHover={{ scale: 1.2 }}
+    href={href}
+    aria-label={ariaLabel}
+    className="text-purple-400"
+  >
+    {icon}
+  </motion.a>
+);
 
 const Hero = () => {
   const { data, loading, error } = useQuery(GET_HERO_CONTENT);
@@ -17,6 +27,7 @@ const Hero = () => {
   if (error) return <p>Error: {error.message}</p>;
 
   const { name, bio, titles, socialLinks } = data.heroContent;
+  const { github, linkedin, email } = socialLinks;
 
   return (
     <section className="mt-36 border-b border-gray-700">
@@ -36,6 +47,7 @@ const Hero = () => {
               repeat={Infinity}
               className="font-bold text-gray-100 text-xl md:text-3xl lg:text-5xl italic mb-4"
             />
+
             {/* Main greeting message */}
             <motion.p
               initial={{ opacity: 0 }}
@@ -48,6 +60,7 @@ const Hero = () => {
               <span className="text-purple-500">{name}</span>
             </motion.p>
 
+            {/* Bio paragraph */}
             <motion.p
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -78,38 +91,30 @@ const Hero = () => {
               </motion.button>
 
               {/* Social media icons */}
-              <div className="flex gap-6 flex-row text-4xl md:text-6xl text-purple-400 z-20">
-                <motion.a
-                  whileHover={{ scale: 1.2 }}
-                  href={socialLinks.github}
-                  aria-label="GitHub Profile"
-                >
-                  <AiOutlineGithub />
-                </motion.a>
-
-                <motion.a
-                  whileHover={{ scale: 1.2 }}
-                  href={socialLinks.linkedin}
-                  aria-label="LinkedIn Profile"
-                >
-                  <AiOutlineLinkedin />
-                </motion.a>
-
-                <motion.a
-                  whileHover={{ scale: 1.2 }}
-                  href={`mailto:${socialLinks.email}`}
-                  aria-label="Email"
-                >
-                  <AiOutlineMail />
-                </motion.a>
+              <div className="flex flex-row gap-6 text-4xl md:text-6xl text-purple-400 z-20">
+                <SocialMediaLink
+                  href={github}
+                  ariaLabel="GitHub Profile"
+                  icon={<AiOutlineGithub />}
+                />
+                <SocialMediaLink
+                  href={linkedin}
+                  ariaLabel="LinkedIn Profile"
+                  icon={<AiOutlineLinkedin />}
+                />
+                <SocialMediaLink
+                  href={email}
+                  ariaLabel="Email"
+                  icon={<AiOutlineMail />}
+                />
               </div>
             </motion.div>
           </div>
         </motion.div>
 
-        <div className="w-full mt-8 lg:mt-0 lg:w-1/2 lg:p-8">
+        {/* Profile image with fade-in effect */}
+        <div className="w-full lg:w-1/2 mt-8 lg:mt-0 lg:p-8">
           <div className="flex justify-center">
-            {/* Profile image with fade-in effect */}
             <motion.img
               src={profilepic}
               alt="John Doe's Profile"
@@ -122,9 +127,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-
-      {/* Shiny effect overlay */}
-      {/* <ShinyEffect size={1400} /> */}
     </section>
   );
 };
