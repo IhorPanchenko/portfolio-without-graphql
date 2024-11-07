@@ -8,8 +8,12 @@ body {
   background-color: #190b1f;
 }
 
+section {
+  @apply pb-10;
+}
+
 h2 {
-  @apply text-xl md:text-4xl;
+  @apply my-16 text-center text-xl md:text-4xl text-gray-200;
 }
 
 p {

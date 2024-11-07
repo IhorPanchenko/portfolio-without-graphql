@@ -1,6 +1,6 @@
 import Reveal from "../UI/Reveal";
 
-const Contact = () => {
+const About = () => {
   const statistics = [
     { count: "C1", label: "English" },
     { count: "B2", label: "German" },
@@ -8,18 +8,15 @@ const Contact = () => {
   ];
 
   return (
-    <section className="mx-auto md:my-12" id="contact">
+    <section className="mx-auto md:mt-12" id="contact">
       <Reveal>
-        <h3 className="my-10 text-center text-4xl text-gray-200">
+        <h2>
           About <span>Me</span>
-        </h3>
+        </h2>
         <div className="grid md:grid-cols-2 place-items-center">
           <div>
             {/* About Me section */}
             <div className="text-gray-300 my-3">
-              <h3 className="text-4xl font-semibold mb-5">
-                About <span>Me</span>
-              </h3>
               <p className="text-justify leading-7 w-11/12">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
                 eos, quam vel quisquam, explicabo sit labore dignissimos optio
@@ -105,4 +102,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default About;

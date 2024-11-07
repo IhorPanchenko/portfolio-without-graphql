@@ -38,16 +38,15 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section className="p-8 mx-auto border-b border-gray-900 pb-4 text-gray-300">
-      <motion.h1
+    <section className="border-b border-gray-700 text-gray-300">
+      <motion.h2
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -100 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="my-20 text-center text-4xl"
       >
         Experience
-      </motion.h1>
+      </motion.h2>
       {experiences.map((experience) => (
         <Reveal key={experience.company}>
           <motion.div
@@ -64,7 +63,7 @@ const Experience = () => {
               viewport={{ once: true }}
               className="w-full md:w-1/4"
             >
-              <p className="mb-2 text-sm">{experience.period}</p>
+              <p className="mb-2 text-base">{experience.period}</p>
             </motion.div>
 
             <motion.div
@@ -74,17 +73,17 @@ const Experience = () => {
               viewport={{ once: true }}
               className="w-full max-w-xl md:w-3/4"
             >
-              <h6 className="mb-2 font-semibold">
+              <h4 className="mb-2 font-semibold">
                 {experience.role} -{" "}
-                <span className="text-sm">{experience.company}</span>
-              </h6>
+                <span className="text-base">{experience.company}</span>
+              </h4>
               <p className="mb-4 text-base text-justify text-gray-400">
                 {experience.description}
               </p>
               {experience.technologies.map((tech, index) => (
                 <span
                   key={index}
-                  className="mr-2 mt-4 rounded bg-gray-800 px-2 py-1 text-sm font-medium text-purple-800"
+                  className="mr-2 mt-4 rounded bg-gray-800 px-2 py-1 text-base font-medium text-purple-800"
                 >
                   {tech}
                 </span>

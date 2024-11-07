@@ -1,8 +1,8 @@
 import { TypeAnimation } from "react-type-animation";
 import { animate, motion } from "framer-motion";
 import {
-  AiOutlineGithub,
-  AiOutlineInstagram,
+  AiOutlineMessage,
+  AiOutlineClockCircle,
   AiOutlineLinkedin,
 } from "react-icons/ai";
 import {
@@ -12,6 +12,9 @@ import {
   DiNodejsSmall,
   DiReact,
 } from "react-icons/di";
+import { MdLightbulbOutline, MdBrush } from "react-icons/md";
+import { FaUsers } from "react-icons/fa";
+import { GiFlexibleStar } from "react-icons/gi";
 import { RiTailwindCssFill } from "react-icons/ri";
 
 const iconVariants = (duration) => ({
@@ -27,16 +30,16 @@ const iconVariants = (duration) => ({
   },
 });
 
-const Technologies = () => {
+const SoftSkills = () => {
   return (
-    <section className="pb-10">
+    <section className="border-b flex flex-col items-center border-gray-700 pb-24">
       <motion.h2
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -100 }}
         transition={{ duration: 1.5 }}
         viewport={{ once: true }}
       >
-        Technologies
+        Soft Skills
       </motion.h2>
 
       <motion.div
@@ -44,15 +47,15 @@ const Technologies = () => {
         initial={{ opacity: 0, x: -100 }}
         transition={{ duration: 1.5 }}
         viewport={{ once: true }}
-        className="flex flex-wrap items-center justify-center gap-4"
+        className="flex flex-wrap items-center justify-center gap-6 border-2 border-purple-900 p-6 rounded-xl bg-purple-900/20"
       >
         <motion.div
           variants={iconVariants(2.5)}
           initial="initial"
           animate="animate"
-          className="rounded-2xl border-4 border-neutral-800 p-4"
+          className="rounded-xl border-4 border-neutral-800 p-4"
         >
-          <DiHtml5 className="text-7xl text-orange-600" />
+          <AiOutlineMessage className="text-7xl text-orange-600" />
         </motion.div>
         <motion.div
           variants={iconVariants(3)}
@@ -60,7 +63,7 @@ const Technologies = () => {
           animate="animate"
           className="rounded-2xl border-4 border-neutral-800 p-4"
         >
-          <DiCss3 className="text-7xl text-blue-500" />
+          <AiOutlineClockCircle className="text-7xl text-blue-500" />
         </motion.div>
         <motion.div
           variants={iconVariants(5)}
@@ -68,7 +71,7 @@ const Technologies = () => {
           animate="animate"
           className="rounded-2xl border-4 border-neutral-800 p-4"
         >
-          <DiJavascript1 className="text-7xl text-yellow-500" />
+          <MdLightbulbOutline className="text-7xl text-yellow-500" />
         </motion.div>
         <motion.div
           variants={iconVariants(6)}
@@ -76,7 +79,7 @@ const Technologies = () => {
           animate="animate"
           className="rounded-2xl border-4 border-neutral-800 p-4"
         >
-          <RiTailwindCssFill className="text-7xl text-blue-600" />
+          <MdBrush className="text-7xl text-blue-600" />
         </motion.div>
         <motion.div
           variants={iconVariants(2)}
@@ -84,7 +87,7 @@ const Technologies = () => {
           animate="animate"
           className="rounded-2xl border-4 border-neutral-800 p-4"
         >
-          <DiNodejsSmall className="text-7xl text-green-500" />
+          <FaUsers className="text-7xl text-green-500" />
         </motion.div>
         <motion.div
           variants={iconVariants(4)}
@@ -92,11 +95,11 @@ const Technologies = () => {
           animate="animate"
           className="rounded-2xl border-4 border-neutral-800 p-4"
         >
-          <DiReact className="text-7xl text-blue-500" />
+          <GiFlexibleStar className="text-7xl text-blue-500" />
         </motion.div>
       </motion.div>
     </section>
   );
 };
 
-export default Technologies;
+export default SoftSkills;

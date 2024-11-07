@@ -1,4 +1,6 @@
 import { TypeAnimation } from "react-type-animation";
+import { GET_HERO_CONTENT } from "../../graphql/queries";
+import { gql, useQuery } from "@apollo/client";
 import { animate, motion } from "framer-motion";
 import {
   AiOutlineGithub,
@@ -9,8 +11,15 @@ import ShinyEffect from "../UI/ShinyEffect";
 import profilepic from "../../assets/images/profpic.png";
 
 const Hero = () => {
+  const { data, loading, error } = useQuery(GET_HERO_CONTENT);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+  const { name, bio, titles, socialLinks } = data.heroContent;
+
   return (
-    <section className="mt-36 border-b border-gray-700 pb-10">
+    <section className="mt-36 border-b border-gray-700">
       <div className="flex flex-wrap">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
@@ -22,14 +31,7 @@ const Hero = () => {
           <div className="flex flex-col items-center lg:items-start">
             {/* Type animation for role titles */}
             <TypeAnimation
-              sequence={[
-                "Frontend Developer",
-                1000,
-                "Web Developer",
-                1000,
-                "UI Engineer",
-                1000,
-              ]}
+              sequence={titles.flatMap((title) => [title, 1000])}
               speed={50}
               repeat={Infinity}
               className="font-bold text-gray-100 text-xl md:text-3xl lg:text-5xl italic mb-4"
@@ -43,7 +45,7 @@ const Hero = () => {
               className="text-gray-200 text-3xl text-center lg:text-left md:text-5xl lg:text-6xl tracking-tight mb-4 uppercase"
             >
               Hey, I am <br />
-              <span className="text-purple-500">Ihor Panchenko</span>
+              <span className="text-purple-500">{name}</span>
             </motion.p>
 
             <motion.p
@@ -53,10 +55,7 @@ const Hero = () => {
               transition={{ duration: 1, delay: 1 }}
               className="text-gray-300 max-w-[300px] md:max-w-[600px] text-center lg:text-left text-lg md:text-2xl mb-6"
             >
-              I am a Junior Front-End Developer with experience in JavaScript
-              and React. I develop dynamic, responsive user interfaces and have
-              a good eye for design. Teamwork and continuous learning are
-              important to me in creating modern and innovative solutions.
+              {bio}
             </motion.p>
 
             {/* Action buttons and social media links */}
@@ -82,7 +81,7 @@ const Hero = () => {
               <div className="flex gap-6 flex-row text-4xl md:text-6xl text-purple-400 z-20">
                 <motion.a
                   whileHover={{ scale: 1.2 }}
-                  href="https://github.com/IhorPanchenko"
+                  href={socialLinks.github}
                   aria-label="GitHub Profile"
                 >
                   <AiOutlineGithub />
@@ -90,7 +89,7 @@ const Hero = () => {
 
                 <motion.a
                   whileHover={{ scale: 1.2 }}
-                  href="https://www.linkedin.com"
+                  href={socialLinks.linkedin}
                   aria-label="LinkedIn Profile"
                 >
                   <AiOutlineLinkedin />
@@ -98,7 +97,7 @@ const Hero = () => {
 
                 <motion.a
                   whileHover={{ scale: 1.2 }}
-                  href="mailto:ipanchenko91@gmail.com"
+                  href={`mailto:${socialLinks.email}`}
                   aria-label="Email"
                 >
                   <AiOutlineMail />
@@ -125,7 +124,7 @@ const Hero = () => {
       </div>
 
       {/* Shiny effect overlay */}
-      <ShinyEffect size={1400} />
+      {/* <ShinyEffect size={1400} /> */}
     </section>
   );
 };

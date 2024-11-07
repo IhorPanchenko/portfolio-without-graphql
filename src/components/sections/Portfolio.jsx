@@ -57,8 +57,8 @@ const projects = [
 
 const Portfolio = () => {
   return (
-    <section className=" mx-auto md:my-20" id="portfolio">
-      <h2 className="text-3xl font-bold text-gray-200 mb-8">Portfolio</h2>
+    <section className=" mx-auto " id="portfolio">
+      <h2>Portfolio</h2>
 
       {projects.map((project, index) => {
         const { img, title, description, links } = project;
