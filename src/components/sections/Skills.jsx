@@ -37,7 +37,7 @@ const Skills = () => {
             >
               <h3
                 id={`skill-${skill.category}`}
-                className="text-2xl font-bold text-left mb-6"
+                className="text-2xl md:text-3xl font-bold text-left mb-6"
               >
                 {skill.category}
               </h3>

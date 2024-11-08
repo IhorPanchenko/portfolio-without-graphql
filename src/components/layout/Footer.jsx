@@ -1,33 +1,46 @@
-import { Link } from "react-scroll";
+import { useQuery } from "@apollo/client";
+import { motion } from "framer-motion";
 import { FaGithubSquare, FaLinkedin } from "react-icons/fa";
-
-const navLinks = [
-  { name: "About", to: "skills" },
-  { name: "Portfolio", to: "portfolio" },
-  { name: "Contact", to: "contact" },
-];
+import { GET_HERO_CONTENT } from "../../graphql/queries";
 
 const Footer = () => {
+  const { data, loading, error } = useQuery(GET_HERO_CONTENT);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+  const { name, socialLinks } = data.heroContent;
+  const { github, linkedin, email } = socialLinks;
+
   return (
-    <footer className="mx-auto mt-14 flex flex-col-reverse lg:flex-row max-w-[1300px] justify-between items-center p-6 text-sm md:p-5 md:text-lg">
-      <p className="text-gray-400 text-center">© 2024 J.Doe</p>
-      <div className="flex justify-center flex-row gap-6 text-4xl text-gray-400">
-        <a
-          href="https://github.com"
-          target="_blank"
+    <footer className="mx-auto px-8 py-4 md:py-8 flex flex-row items-center justify-between max-w-[1300px] text-sm text-gray-400">
+      <div>
+        <p>© {name}</p>
+        <span className="text-gray-400">{email}</span>
+      </div>
+      <div className="flex justify-center gap-x-3 sm:gap-x-6 text-4xl text-purple-400">
+        <motion.a
+          whileHover={{
+            scale: 1.15,
+            boxShadow: "0px 0px 8px rgba(0, 0, 0, 0.3)",
+          }}
+          href={github}
           rel="noopener noreferrer"
           aria-label="GitHub Profile"
         >
-          <FaGithubSquare className="text-3xl" />
-        </a>
-        <a
-          href="https://linkedin.com"
-          target="_blank"
+          <FaGithubSquare />
+        </motion.a>
+        <motion.a
+          whileHover={{
+            scale: 1.15,
+            boxShadow: "0px 0px 8px rgba(0, 0, 0, 0.3)",
+          }}
+          href={linkedin}
           rel="noopener noreferrer"
           aria-label="LinkedIn Profile"
         >
-          <FaLinkedin className="text-3xl" />
-        </a>
+          <FaLinkedin />
+        </motion.a>
       </div>
     </footer>
   );
