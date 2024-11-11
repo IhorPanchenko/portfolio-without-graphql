@@ -14,11 +14,21 @@ const Footer = () => {
 
   return (
     <footer className="mx-auto px-8 py-4 md:py-8 flex flex-row items-center justify-between max-w-[1300px] text-sm text-gray-400">
-      <div>
+      <motion.div
+        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, x: -100 }}
+        transition={{ duration: 1 }}
+      >
         <p>© {name}</p>
         <span className="text-gray-400">{email}</span>
-      </div>
-      <div className="flex justify-center gap-x-3 sm:gap-x-6 text-4xl text-purple-400">
+      </motion.div>
+
+      <motion.div
+        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, x: 100 }}
+        transition={{ duration: 1 }}
+        className="flex justify-center gap-x-3 sm:gap-x-6 text-4xl text-purple-400"
+      >
         <motion.a
           whileHover={{
             scale: 1.15,
@@ -41,7 +51,7 @@ const Footer = () => {
         >
           <FaLinkedin />
         </motion.a>
-      </div>
+      </motion.div>
     </footer>
   );
 };

@@ -23,16 +23,22 @@ const Skills = () => {
       aria-labelledby="skills-heading"
     >
       <Reveal>
-        <h2 id="skills-heading">
+        <motion.h2
+          id="skills-heading"
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: -100 }}
+          transition={{ duration: 0.5 }}
+          // viewport={{ once: true }}
+        >
           <span>My </span>Skills
-        </h2>
+        </motion.h2>
 
         {/* Skills container */}
-        <div className="flex flex-col justify-center text-gray-200 space-y-8 lg:space-y-0">
+        <div className="flex flex-col text-gray-200 space-y-8 lg:space-y-0">
           {skills.map((skill) => (
             <article
               key={skill.category}
-              className="w-full p-6 "
+              className="w-full pb-8"
               aria-labelledby={`skill-${skill.category}`}
             >
               <h3

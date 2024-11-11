@@ -14,3 +14,39 @@ export const GET_HERO_CONTENT = gql`
     }
   }
 `;
+
+export const GET_ABOUT_CONTENT = gql`
+  query GetAboutContent {
+    aboutContent {
+      languages {
+        level
+        label
+      }
+      description
+    }
+  }
+`;
+
+export const GET_EXPERIENCE = gql`
+  query GetExperience {
+    experience {
+      company
+      period
+      role
+      technologies
+      description
+    }
+  }
+`;
+
+export const GET_EDUCATION = gql`
+  query GetEducation {
+    education {
+      degree
+      period
+      faculty
+      institution
+      location
+    }
+  }
+`;

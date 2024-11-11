@@ -6,6 +6,7 @@ import Portfolio from "./components/sections/Portfolio";
 import About from "./components/sections/About";
 import Experience from "./components/sections/Experience";
 import ShinyEffect from "./components/UI/ShinyEffect";
+import Education from "./components/sections/Education";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
         <Skills />
         <Portfolio />
         <Experience />
+        <Education />
       </main>
 
       <ShinyEffect size={1400} />

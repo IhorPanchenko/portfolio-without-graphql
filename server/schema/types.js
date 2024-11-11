@@ -14,7 +14,36 @@ export const typeDefs = gql`
     socialLinks: SocialLinks
   }
 
+  type AboutContent {
+    languages: [Language]
+    description: String
+  }
+
+  type Language {
+    level: String
+    label: String
+  }
+
+  type Experience {
+    company: String
+    period: String
+    role: String
+    technologies: [String]
+    description: String
+  }
+
+  type Education {
+    degree: String
+    period: String
+    faculty: String
+    institution: String
+    location: String
+  }
+
   type Query {
     heroContent: HeroContent
+    aboutContent: AboutContent
+    experience: [Experience]
+    education: [Education]
   }
 `;
