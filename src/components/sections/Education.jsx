@@ -10,7 +10,7 @@ const Education = () => {
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <section className="border-b border-gray-700 text-gray-300">
+    <section id="education" className="border-b border-gray-700 text-gray-300">
       <motion.h2
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -100 }}

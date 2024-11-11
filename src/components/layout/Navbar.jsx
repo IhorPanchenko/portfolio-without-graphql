@@ -25,9 +25,11 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { name: "About", to: "skills" },
+    { name: "About", to: "about" },
+    { name: "Skills", to: "skills" },
     { name: "Portfolio", to: "portfolio" },
-    { name: "Contact", to: "contact" },
+    { name: "Experience", to: "experience" },
+    { name: "Education", to: "education" },
   ];
 
   const toggleNav = () => {

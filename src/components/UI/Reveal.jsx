@@ -4,12 +4,14 @@ import PropTypes from "prop-types";
 
 const Reveal = ({ children, duration = 0.5, delay = 0.25 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref); //const isInView = useInView(ref, { once: true });
   const mainControls = useAnimation();
 
   useEffect(() => {
     if (isInView) {
       mainControls.start("visible");
+    } else {
+      mainControls.start("hidden");
     }
   }, [isInView, mainControls]);
 
@@ -32,7 +34,6 @@ const Reveal = ({ children, duration = 0.5, delay = 0.25 }) => {
 
 Reveal.propTypes = {
   children: PropTypes.node.isRequired,
-  width: PropTypes.string,
   duration: PropTypes.number,
   delay: PropTypes.number,
 };

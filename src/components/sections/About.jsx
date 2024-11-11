@@ -15,7 +15,7 @@ const About = () => {
   return (
     <section
       className="mx-auto text-gray-300 border-b border-gray-700 md:mt-12"
-      id="contact"
+      id="about"
       aria-labelledby="about-heading"
     >
       <motion.h2
