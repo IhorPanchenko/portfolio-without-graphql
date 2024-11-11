@@ -1,11 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { Link } from "react-scroll";
 import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
-  const offset = 50;
+  const [offset, setOffset] = useState(0);
+  const navRef = useRef(null);
+
+  useEffect(() => {
+    if (navRef.current) {
+      setOffset(navRef.current.offsetHeight);
+    }
+  }, []);
 
   const menuVariants = {
     open: {
@@ -41,11 +48,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-opacity-70 backdrop-blur-md">
-      <div
-        className=" mx-auto flex items-center justify-between h-20 
-        px-6 md:px-12 text-xl text-gray-200"
-      >
+    <nav
+      ref={navRef}
+      className="fixed top-0 left-0 w-full z-50 bg-opacity-70 backdrop-blur-md"
+    >
+      <div className="mx-auto flex items-center justify-between h-20 px-6 md:px-12 text-xl text-gray-200">
         <a
           href="https://www.linkedin.com"
           rel="noopener noreferrer"
@@ -61,7 +68,7 @@ const Navbar = () => {
               <Link
                 to={link.to}
                 smooth={true}
-                offset={offset}
+                offset={-offset}
                 duration={500}
                 className="hover:text-purple-400"
               >
@@ -94,7 +101,7 @@ const Navbar = () => {
                   to={link.to}
                   onClick={closeNav}
                   smooth={true}
-                  offset={offset}
+                  offset={-offset}
                   duration={500}
                   className="hover:text-purple-400 transition duration-300"
                 >
