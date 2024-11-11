@@ -1,15 +1,9 @@
-import { useQuery } from "@apollo/client";
+import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 import { FaGithubSquare, FaLinkedin } from "react-icons/fa";
-import { GET_HERO_CONTENT } from "../../graphql/queries";
 
-const Footer = () => {
-  const { data, loading, error } = useQuery(GET_HERO_CONTENT);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
-
-  const { name, socialLinks } = data.heroContent;
+const Footer = ({ heroContent }) => {
+  const { name, socialLinks } = heroContent;
   const { github, linkedin, email } = socialLinks;
 
   return (
@@ -54,6 +48,17 @@ const Footer = () => {
       </motion.div>
     </footer>
   );
+};
+
+Footer.propTypes = {
+  heroContent: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    socialLinks: PropTypes.shape({
+      github: PropTypes.string.isRequired,
+      linkedin: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
 };
 
 export default Footer;

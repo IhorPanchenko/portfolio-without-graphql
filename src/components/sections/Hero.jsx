@@ -1,12 +1,11 @@
+import PropTypes from "prop-types";
 import { TypeAnimation } from "react-type-animation";
-import { useQuery } from "@apollo/client";
 import { motion } from "framer-motion";
 import {
   AiOutlineGithub,
   AiOutlineLinkedin,
   AiOutlineMail,
 } from "react-icons/ai";
-import { GET_HERO_CONTENT } from "../../graphql/queries";
 import profilepic from "../../assets/images/profpic.png";
 
 const SocialMediaLink = ({ href, ariaLabel, icon }) => (
@@ -20,14 +19,8 @@ const SocialMediaLink = ({ href, ariaLabel, icon }) => (
   </motion.a>
 );
 
-const Hero = () => {
-  const { data, loading, error } = useQuery(GET_HERO_CONTENT);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
-
-  const { name, bio, titles, socialLinks } = data.heroContent;
-  const { github, linkedin, email } = socialLinks;
+const Hero = ({ heroContent }) => {
+  const { titles, name, bio, socialLinks } = heroContent;
 
   return (
     <section className="mt-36 border-b border-gray-700">
@@ -66,7 +59,7 @@ const Hero = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 1 }}
-              className="text-gray-300 max-w-[300px] md:max-w-[600px] text-center lg:text-left text-lg md:text-2xl mb-6"
+              className="text-gray-300 max-w-[500px] md:max-w-[600px] text-center lg:text-left text-lg md:text-2xl mb-6"
             >
               {bio}
             </motion.p>
@@ -93,17 +86,17 @@ const Hero = () => {
               {/* Social media icons */}
               <div className="flex flex-row gap-6 text-4xl md:text-6xl text-purple-400 z-20">
                 <SocialMediaLink
-                  href={github}
+                  href={socialLinks.github}
                   ariaLabel="GitHub Profile"
                   icon={<AiOutlineGithub />}
                 />
                 <SocialMediaLink
-                  href={linkedin}
+                  href={socialLinks.linkedin}
                   ariaLabel="LinkedIn Profile"
                   icon={<AiOutlineLinkedin />}
                 />
                 <SocialMediaLink
-                  href={email}
+                  href={socialLinks.email}
                   ariaLabel="Email"
                   icon={<AiOutlineMail />}
                 />
@@ -129,6 +122,19 @@ const Hero = () => {
       </div>
     </section>
   );
+};
+
+Hero.propTypes = {
+  heroContent: PropTypes.shape({
+    titles: PropTypes.arrayOf(PropTypes.string).isRequired,
+    name: PropTypes.string.isRequired,
+    bio: PropTypes.string.isRequired,
+    socialLinks: PropTypes.shape({
+      github: PropTypes.string,
+      linkedin: PropTypes.string,
+      email: PropTypes.string,
+    }).isRequired,
+  }).isRequired,
 };
 
 export default Hero;

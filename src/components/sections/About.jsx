@@ -1,16 +1,10 @@
-import { useQuery } from "@apollo/client";
+import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 import Reveal from "../UI/Reveal";
-import { GET_ABOUT_CONTENT } from "../../graphql/queries";
 import heropic from "../../assets/images/heropic.jpg";
 
-const About = () => {
-  const { data, loading, error } = useQuery(GET_ABOUT_CONTENT);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
-
-  const { description, languages } = data.aboutContent;
+const About = ({ aboutContent }) => {
+  const { description, languages } = aboutContent;
 
   return (
     <section
@@ -37,7 +31,7 @@ const About = () => {
             initial={{ opacity: 0, x: -100 }}
             transition={{ duration: 0.5 }}
           >
-            <div>
+            <div className="flex justify-center">
               <img
                 className="w-[400px] md:w-[500px] rounded-2xl"
                 src={heropic}
@@ -79,6 +73,18 @@ const About = () => {
       </Reveal>
     </section>
   );
+};
+
+About.propTypes = {
+  aboutContent: PropTypes.shape({
+    description: PropTypes.string.isRequired,
+    languages: PropTypes.arrayOf(
+      PropTypes.shape({
+        level: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+  }).isRequired,
 };
 
 export default About;

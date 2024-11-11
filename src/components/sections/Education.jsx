@@ -1,14 +1,8 @@
-import { useQuery } from "@apollo/client";
+import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 import Reveal from "../UI/Reveal";
-import { GET_EDUCATION } from "../../graphql/queries";
 
-const Education = () => {
-  const { data, loading, error } = useQuery(GET_EDUCATION);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
-
+const Education = ({ education }) => {
   return (
     <section id="education" className="border-b border-gray-700 text-gray-300">
       <motion.h2
@@ -20,8 +14,8 @@ const Education = () => {
         Education
       </motion.h2>
 
-      {data.education.map((education) => (
-        <Reveal key={education.period}>
+      {education.map((eduRecord) => (
+        <Reveal key={eduRecord.period}>
           <motion.article
             initial="hidden"
             whileInView="visible"
@@ -36,7 +30,7 @@ const Education = () => {
               // viewport={{ once: true }}
               className="w-full md:w-1/4"
             >
-              <p className="mb-2 text-base">{education.period}</p>
+              <p className="mb-2 text-base">{eduRecord.period}</p>
             </motion.div>
 
             <motion.div
@@ -47,11 +41,11 @@ const Education = () => {
               className="w-full max-w-xl md:w-3/4"
             >
               <h4 className="mb-2 text-lg font-semibold">
-                {education.faculty} -{" "}
-                <span className="text-base">{education.degree}</span>
+                {eduRecord.faculty} -{" "}
+                <span className="text-base">{eduRecord.degree}</span>
               </h4>
               <p className="text-base text-gray-400 text-justify">
-                {education.institution}, {education.location}
+                {eduRecord.institution}, {eduRecord.location}
               </p>
             </motion.div>
           </motion.article>
@@ -59,6 +53,18 @@ const Education = () => {
       ))}
     </section>
   );
+};
+
+Education.propTypes = {
+  education: PropTypes.arrayOf(
+    PropTypes.shape({
+      period: PropTypes.string.isRequired,
+      faculty: PropTypes.string.isRequired,
+      degree: PropTypes.string.isRequired,
+      institution: PropTypes.string.isRequired,
+      location: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default Education;
