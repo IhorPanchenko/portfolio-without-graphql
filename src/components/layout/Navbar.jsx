@@ -3,9 +3,35 @@ import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { Link } from "react-scroll";
 import { motion } from "framer-motion";
 
+const navLinks = [
+  { id: 0, name: "About", to: "about" },
+  { id: 1, name: "Skills", to: "skills" },
+  { id: 2, name: "Portfolio", to: "portfolio" },
+  { id: 3, name: "Experience", to: "experience" },
+  { id: 4, name: "Education", to: "education" },
+];
+
+const menuVariants = {
+  open: {
+    x: 0,
+    transition: {
+      stiffness: 20,
+      damping: 15,
+    },
+  },
+  closed: {
+    x: "-100%",
+    transition: {
+      stiffness: 20,
+      damping: 15,
+    },
+  },
+};
+
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const [offset, setOffset] = useState(0);
+  const [currentTab, setCurrentTab] = useState(null);
   const navRef = useRef(null);
 
   useEffect(() => {
@@ -14,30 +40,9 @@ const Navbar = () => {
     }
   }, []);
 
-  const menuVariants = {
-    open: {
-      x: 0,
-      transition: {
-        stiffness: 20,
-        damping: 15,
-      },
-    },
-    closed: {
-      x: "-100%",
-      transition: {
-        stiffness: 20,
-        damping: 15,
-      },
-    },
+  const handleLinkClick = (index) => {
+    setCurrentTab(index); // Set active tab when clicked
   };
-
-  const navLinks = [
-    { name: "About", to: "about" },
-    { name: "Skills", to: "skills" },
-    { name: "Portfolio", to: "portfolio" },
-    { name: "Experience", to: "experience" },
-    { name: "Education", to: "education" },
-  ];
 
   const toggleNav = () => {
     setNav(!nav);
@@ -70,7 +75,10 @@ const Navbar = () => {
                 smooth={true}
                 offset={-offset}
                 duration={500}
-                className="hover:text-purple-400"
+                className={`hover:text-purple-400 ${
+                  currentTab === link.id ? "text-purple-400 font-bold" : ""
+                }`}
+                onClick={() => handleLinkClick(link.id)}
               >
                 {link.name}
               </Link>

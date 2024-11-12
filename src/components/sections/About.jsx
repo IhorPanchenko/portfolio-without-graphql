@@ -8,7 +8,7 @@ const About = ({ aboutContent }) => {
 
   return (
     <section
-      className="mx-auto text-gray-300 border-b border-gray-700 md:mt-12"
+      className="flex flex-col mx-auto text-gray-300 border-b border-gray-700"
       id="about"
       aria-labelledby="about-heading"
     >

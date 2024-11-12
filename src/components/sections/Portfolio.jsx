@@ -4,7 +4,10 @@ import Reveal from "../UI/Reveal";
 
 const Portfolio = ({ portfolio }) => {
   return (
-    <section className="border-b border-gray-700 pb-20" id="portfolio">
+    <section
+      className="flex flex-col border-b border-gray-700 pb-20"
+      id="portfolio"
+    >
       <motion.h2
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -100 }}

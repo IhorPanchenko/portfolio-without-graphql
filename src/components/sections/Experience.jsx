@@ -4,7 +4,10 @@ import Reveal from "../UI/Reveal";
 
 const Experience = ({ experience }) => {
   return (
-    <section id="experience" className="border-b border-gray-700 text-gray-300">
+    <section
+      id="experience"
+      className="flex flex-col border-b border-gray-700 text-gray-300"
+    >
       <motion.h2
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -100 }}
