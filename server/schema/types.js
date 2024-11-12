@@ -24,6 +24,19 @@ export const typeDefs = gql`
     label: String
   }
 
+  type Portfolio {
+    title: String
+    img: String
+    description: String
+    projectLinks: ProjectLinks
+    technologies: [String]
+  }
+
+  type ProjectLinks {
+    site: String
+    github: String
+  }
+
   type Experience {
     company: String
     period: String
@@ -43,6 +56,7 @@ export const typeDefs = gql`
   type Query {
     heroContent: HeroContent
     aboutContent: AboutContent
+    portfolio: [Portfolio]
     experience: [Experience]
     education: [Education]
   }

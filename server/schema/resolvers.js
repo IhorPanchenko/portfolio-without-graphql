@@ -18,6 +18,74 @@ export const resolvers = {
       description:
         "I am a passionate junior frontend developer with expertise in building responsive web applications using modern JavaScript frameworks like React.js. I focus on creating seamless, user-centered experiences with clean and efficient code. Always eager to learn and adapt, I aim to deliver high-quality solutions that meet both user and business needs.",
     }),
+    portfolio: () => [
+      {
+        title: "Portfolio Website",
+        img: "src/assets/images/porfolio.jpg",
+        description:
+          "A personal portfolio website showcasing projects, education, and experience.",
+        projectLinks: {
+          site: "#",
+          github: "https://github.com/IhorPanchenko/portfolio",
+        },
+        technologies: ["React.js", "Vite", "GraphQL", "Tailwind CSS"],
+      },
+      {
+        title: "Movie Watchlist",
+        img: "src/assets/images/watchlist.jpg",
+        description:
+          "Search and save movies to a personal watchlist with an intuitive and responsive interface.",
+        projectLinks: {
+          site: "#",
+          github: "https://github.com/IhorPanchenko/movie-watchlist",
+        },
+        technologies: ["React.js", "Redux", "API", "Tailwind CSS"],
+      },
+      {
+        title: "Weather-Forecast",
+        img: "src/assets/images/forecast.jpg",
+        description:
+          "Utilizes an API key to fetch and display current weather details.",
+        projectLinks: {
+          site: "#",
+          github: "https://github.com/IhorPanchenko/weather-forecast",
+        },
+        technologies: ["React.js", "Redux", "API", "HTML/CSS"],
+      },
+      {
+        title: "Portfolio Website #2",
+        img: "src/assets/images/porfolio.jpg",
+        description:
+          "A personal portfolio website showcasing projects, education, and experience.",
+        projectLinks: {
+          site: "#",
+          github: "https://github.com/IhorPanchenko/portfolio",
+        },
+        technologies: ["React.js", "Vite", "GraphQL", "Tailwind CSS"],
+      },
+      {
+        title: "Movie Watchlist #2",
+        img: "src/assets/images/watchlist.jpg",
+        description:
+          "Search and save movies to a personal watchlist with an intuitive and responsive interface.",
+        projectLinks: {
+          site: "#",
+          github: "https://github.com/IhorPanchenko/movie-watchlist",
+        },
+        technologies: ["React.js", "Redux", "API", "Tailwind CSS"],
+      },
+      {
+        title: "Weather-Forecast #2",
+        img: "src/assets/images/forecast.jpg",
+        description:
+          "Utilizes an API key to fetch and display current weather details.",
+        projectLinks: {
+          site: "#",
+          github: "https://github.com/IhorPanchenko/weather-forecast",
+        },
+        technologies: ["React.js", "Redux", "API", "HTML/CSS"],
+      },
+    ],
     experience: () => [
       {
         company: "APEX Global Solutions LLC",

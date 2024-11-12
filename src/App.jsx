@@ -24,7 +24,7 @@ export default function App() {
         <Hero heroContent={data.heroContent} />
         <About aboutContent={data.aboutContent} />
         <Skills />
-        <Portfolio />
+        <Portfolio portfolio={data.portfolio} />
         <Experience experience={data.experience} />
         <Education education={data.education} />
       </main>

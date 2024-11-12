@@ -2,76 +2,7 @@ import { motion } from "framer-motion";
 import { AiOutlineGithub } from "react-icons/ai";
 import Reveal from "../UI/Reveal";
 
-const projects = [
-  {
-    title: "Portfolio Website",
-    img: "src/assets/images/porfolio.jpg",
-    description:
-      "A personal portfolio website showcasing projects, education, and experience.",
-    links: {
-      site: "#",
-      github: "https://github.com/IhorPanchenko/portfolio",
-    },
-    technologies: ["React.js", "Vite", "GraphQL", "Tailwind CSS"],
-  },
-  {
-    title: "Movie Watchlist",
-    img: "src/assets/images/watchlist.jpg",
-    description:
-      "Search and save movies to a personal watchlist with an intuitive and responsive interface.",
-    links: {
-      site: "#",
-      github: "https://github.com/IhorPanchenko/movie-watchlist",
-    },
-    technologies: ["React.js", "Redux", "API", "Tailwind CSS"],
-  },
-  {
-    title: "Weather-Forecast",
-    img: "src/assets/images/forecast.jpg",
-    description:
-      "Utilizes an API key to fetch and display current weather details.",
-    links: {
-      site: "#",
-      github: "https://github.com/IhorPanchenko/weather-forecast",
-    },
-    technologies: ["React.js", "Redux", "API", "HTML/CSS"],
-  },
-  {
-    title: "Portfolio Website #2",
-    img: "src/assets/images/porfolio.jpg",
-    description:
-      "A personal portfolio website showcasing projects, education, and experience.",
-    links: {
-      site: "#",
-      github: "https://github.com/IhorPanchenko/portfolio",
-    },
-    technologies: ["React.js", "Vite", "GraphQL", "Tailwind CSS"],
-  },
-  {
-    title: "Movie Watchlist #2",
-    img: "src/assets/images/watchlist.jpg",
-    description:
-      "Search and save movies to a personal watchlist with an intuitive and responsive interface.",
-    links: {
-      site: "#",
-      github: "https://github.com/IhorPanchenko/movie-watchlist",
-    },
-    technologies: ["React.js", "Redux", "API", "Tailwind CSS"],
-  },
-  {
-    title: "Weather-Forecast #2",
-    img: "src/assets/images/forecast.jpg",
-    description:
-      "Utilizes an API key to fetch and display current weather details.",
-    links: {
-      site: "#",
-      github: "https://github.com/IhorPanchenko/weather-forecast",
-    },
-    technologies: ["React.js", "Redux", "API", "HTML/CSS"],
-  },
-];
-
-const Portfolio = () => {
+const Portfolio = ({ portfolio }) => {
   return (
     <section className="border-b border-gray-700 pb-20" id="portfolio">
       <motion.h2
@@ -86,8 +17,8 @@ const Portfolio = () => {
       <Reveal>
         {/* Container for the project cards */}
         <div className="flex flex-wrap justify-center min-[885px]:justify-between gap-y-16 w-full">
-          {projects.map((project) => {
-            const { img, title, description, links } = project;
+          {portfolio.map((project) => {
+            const { img, title, description, projectLinks } = project;
 
             return (
               <div
@@ -113,14 +44,14 @@ const Portfolio = () => {
                   <p className="mb-4 text-center text-lg">{description}</p>
                   <div className="flex space-x-4">
                     <a
-                      href={links.site}
+                      href={projectLinks.site}
                       className="px-3 py-2 bg-purple-800 rounded-lg hover:bg-purple-600 transition duration-300"
                       aria-label={`View ${title} website`}
                     >
                       View Site
                     </a>
                     <a
-                      href={links.github}
+                      href={projectLinks.github}
                       className="px-3 py-2 text-xl bg-purple-800 rounded-lg hover:bg-purple-600 transition duration-300"
                       aria-label={`View ${title} GitHub repository`}
                     >
