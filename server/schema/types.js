@@ -1,6 +1,16 @@
 import { gql } from "apollo-server-express";
 
 export const typeDefs = gql`
+  type NavLink {
+    name: String
+    to: String
+  }
+
+  type NavContent {
+    linkedin: String
+    navLinks: [NavLink]
+  }
+
   type SocialLinks {
     github: String
     linkedin: String
@@ -54,6 +64,7 @@ export const typeDefs = gql`
   }
 
   type Query {
+    navContent: NavContent
     heroContent: HeroContent
     aboutContent: AboutContent
     portfolio: [Portfolio]

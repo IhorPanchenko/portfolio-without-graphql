@@ -1,5 +1,15 @@
 export const resolvers = {
   Query: {
+    navContent: () => ({
+      linkedin: "https://www.linkedin.com",
+      navLinks: [
+        { name: "About", to: "about" },
+        { name: "Skills", to: "skills" },
+        { name: "Portfolio", to: "portfolio" },
+        { name: "Experience", to: "experience" },
+        { name: "Education", to: "education" },
+      ],
+    }),
     heroContent: () => ({
       name: "Ihor Panchenko",
       bio: "Passionate Junior Frontend Developer skilled in building responsive, user-focused web applications using modern JavaScript frameworks. With a foundation in React, CSS, and responsive design, I aim to create seamless and visually appealing digital experiences. Eager to learn and contribute to impactful projects, I bring a fresh perspective and a commitment to continuous growth in frontend development.",

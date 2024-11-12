@@ -3,13 +3,13 @@ import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { Link } from "react-scroll";
 import { motion } from "framer-motion";
 
-const navLinks = [
-  { id: 0, name: "About", to: "about" },
-  { id: 1, name: "Skills", to: "skills" },
-  { id: 2, name: "Portfolio", to: "portfolio" },
-  { id: 3, name: "Experience", to: "experience" },
-  { id: 4, name: "Education", to: "education" },
-];
+// const navLinks = [
+//   { id: 0, name: "About", to: "about" },
+//   { id: 1, name: "Skills", to: "skills" },
+//   { id: 2, name: "Portfolio", to: "portfolio" },
+//   { id: 3, name: "Experience", to: "experience" },
+//   { id: 4, name: "Education", to: "education" },
+// ];
 
 const menuVariants = {
   open: {
@@ -28,11 +28,13 @@ const menuVariants = {
   },
 };
 
-const Navbar = () => {
+const Navbar = ({ navContent }) => {
   const [nav, setNav] = useState(false);
   const [offset, setOffset] = useState(0);
   const [currentTab, setCurrentTab] = useState(null);
   const navRef = useRef(null);
+
+  const { linkedIn, navLinks } = navContent;
 
   useEffect(() => {
     if (navRef.current) {
@@ -41,7 +43,7 @@ const Navbar = () => {
   }, []);
 
   const handleLinkClick = (index) => {
-    setCurrentTab(index); // Set active tab when clicked
+    setCurrentTab(index);
   };
 
   const toggleNav = () => {
@@ -59,7 +61,7 @@ const Navbar = () => {
     >
       <div className="mx-auto flex items-center justify-between h-20 px-6 md:px-12 text-xl text-gray-200">
         <a
-          href="https://www.linkedin.com"
+          href={linkedIn}
           rel="noopener noreferrer"
           className="font-bold hover:text-purple-400"
         >
@@ -68,7 +70,7 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex gap-6 lg:gap-12 cursor-pointer">
-          {navLinks.map((link) => (
+          {navLinks.map((link, index) => (
             <li key={link.name}>
               <Link
                 to={link.to}
@@ -76,9 +78,9 @@ const Navbar = () => {
                 offset={-offset}
                 duration={500}
                 className={`hover:text-purple-400 ${
-                  currentTab === link.id ? "text-purple-400 font-bold" : ""
+                  currentTab === index ? "text-purple-400 font-bold" : ""
                 }`}
-                onClick={() => handleLinkClick(link.id)}
+                onClick={() => handleLinkClick(index)}
               >
                 {link.name}
               </Link>

@@ -18,7 +18,7 @@ export default function App() {
 
   return (
     <div className="relative overflow-hidden selection:bg-purple-400 selection:text-gray-800">
-      <Navbar />
+      <Navbar navContent={data.navContent} />
 
       <main className="mx-auto max-w-[1300px] px-8">
         <Hero heroContent={data.heroContent} />
