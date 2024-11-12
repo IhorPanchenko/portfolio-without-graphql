@@ -16,8 +16,6 @@ export default function App() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  console.log(data);
-
   return (
     <div className="relative overflow-hidden selection:bg-purple-400 selection:text-gray-800">
       <Navbar />
