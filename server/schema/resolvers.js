@@ -1,7 +1,7 @@
 export const resolvers = {
   Query: {
     navContent: () => ({
-      linkedin: "https://www.linkedin.com",
+      linkedin: "https://www.linkedin.com/in/panchenko91/",
       navLinks: [
         { name: "About", to: "about" },
         { name: "Skills", to: "skills" },
@@ -16,7 +16,7 @@ export const resolvers = {
       titles: ["Frontend Developer", "Web Developer", "UI Engineer"],
       socialLinks: {
         github: "https://github.com/IhorPanchenko",
-        linkedin: "https://www.linkedin.com",
+        linkedin: "https://www.linkedin.com/in/panchenko91/",
         email: "ipanchenko91@gmail.com",
       },
     }),
