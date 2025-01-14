@@ -72,7 +72,9 @@ const Hero = ({ heroContent }) => {
               transition={{ duration: 1, delay: 1.5 }}
               className="flex flex-row items-center gap-6 my-4 md:mb-0"
             >
-              <motion.button
+              <motion.a
+                href="/cv.pdf"
+                download="IhorPanchenko_CV.pdf"
                 whileHover={{
                   scale: 1.05,
                   boxShadow: "0px 0px 8px rgba(0, 0, 0, 0.3)",
@@ -81,7 +83,7 @@ const Hero = ({ heroContent }) => {
                 className="z-10 cursor-pointer font-bold text-gray-200 md:w-auto p-4 border border-purple-400 rounded-xl"
               >
                 Download CV
-              </motion.button>
+              </motion.a>
 
               {/* Social media icons */}
               <div className="flex flex-row gap-6 text-4xl md:text-6xl text-purple-400 z-20">
@@ -96,7 +98,7 @@ const Hero = ({ heroContent }) => {
                   icon={<AiOutlineLinkedin />}
                 />
                 <SocialMediaLink
-                  href={socialLinks.email}
+                  href={`mailto:${socialLinks.email}`}
                   ariaLabel="Email"
                   icon={<AiOutlineMail />}
                 />
@@ -110,7 +112,7 @@ const Hero = ({ heroContent }) => {
           <div className="flex justify-center">
             <motion.img
               src={profilepic}
-              alt="John Doe's Profile"
+              alt={name}
               className="w-[300px] md:w-[450px]"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}

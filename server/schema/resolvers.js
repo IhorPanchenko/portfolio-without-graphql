@@ -12,7 +12,7 @@ export const resolvers = {
     }),
     heroContent: () => ({
       name: "Ihor Panchenko",
-      bio: "Passionate Junior Frontend Developer skilled in building responsive, user-focused web applications using modern JavaScript frameworks. With a foundation in React, CSS, and responsive design, I aim to create seamless and visually appealing digital experiences. Eager to learn and contribute to impactful projects, I bring a fresh perspective and a commitment to continuous growth in frontend development.",
+      bio: "As a passionate Junior Frontend Developer, I specialize in creating responsive and visually engaging web applications. Leveraging modern tools like React, Redux, and Tailwind CSS, I focus on crafting user-centric experiences with clean, efficient code. I am committed to continuous learning and growth in frontend development, eager to contribute to projects that make a meaningful impact.",
       titles: ["Frontend Developer", "Web Developer", "UI Engineer"],
       socialLinks: {
         github: "https://github.com/IhorPanchenko",
@@ -26,9 +26,36 @@ export const resolvers = {
         { level: "B2", label: "German" },
       ],
       description:
-        "I am a passionate junior frontend developer with expertise in building responsive web applications using modern JavaScript frameworks like React.js. I focus on creating seamless, user-centered experiences with clean and efficient code. Always eager to learn and adapt, I aim to deliver high-quality solutions that meet both user and business needs.",
+        "As a Junior Frontend Developer, I am continuously honing my skills through hands-on projects to deepen my understanding of frontend technologies. My academic background includes a Bachelor's Degree in Information Technology, a Specialist's Degree in Information Management Systems, and an Associate's Degree in Computer Programming. I am proficient in English (C1) and German (B2), with Ukrainian and Russian as my native languages. Currently, I am focused on improving my German language skills and am working toward achieving my C1 certification by May 2025. With a strong commitment to both technical and language proficiency, I strive for well-rounded growth to enhance my contributions in the frontend development field.",
     }),
     portfolio: () => [
+      {
+        title: "Taskboard",
+        img: "src/assets/images/task-board.jpg",
+        description:
+          "A task management app built with React, Vite, and Tailwind CSS.",
+        projectLinks: {
+          site: "https://ihorpanchenko.github.io/task-board/",
+          github: "https://github.com/IhorPanchenko/task-board",
+        },
+        technologies: [
+          "React.js",
+          "Vite",
+          "Tailwind CSS",
+          "React Beautiful DnD",
+        ],
+      },
+      {
+        title: "Form Validation",
+        img: "src/assets/images/form-validation.jpg",
+        description:
+          "A React-based project demonstrating client-side form validation using regular expressions.",
+        projectLinks: {
+          site: "https://ihorpanchenko.github.io/form-validation/",
+          github: "https://github.com/IhorPanchenko/form-validation",
+        },
+        technologies: ["React.js", "TypeScript", "CSS/SCSS", "Regex"],
+      },
       {
         title: "Portfolio Website",
         img: "src/assets/images/porfolio.jpg",
@@ -46,7 +73,7 @@ export const resolvers = {
         description:
           "Search and save movies to a personal watchlist with an intuitive and responsive interface.",
         projectLinks: {
-          site: "#",
+          site: "https://ihorpanchenko.github.io/movie-watchlist/",
           github: "https://github.com/IhorPanchenko/movie-watchlist",
         },
         technologies: ["React.js", "Redux", "API", "Tailwind CSS"],
@@ -57,40 +84,7 @@ export const resolvers = {
         description:
           "Utilizes an API key to fetch and display current weather details.",
         projectLinks: {
-          site: "#",
-          github: "https://github.com/IhorPanchenko/weather-forecast",
-        },
-        technologies: ["React.js", "Redux", "API", "HTML/CSS"],
-      },
-      {
-        title: "Portfolio Website #2",
-        img: "src/assets/images/porfolio.jpg",
-        description:
-          "A personal portfolio website showcasing projects, education, and experience.",
-        projectLinks: {
-          site: "#",
-          github: "https://github.com/IhorPanchenko/portfolio",
-        },
-        technologies: ["React.js", "Vite", "GraphQL", "Tailwind CSS"],
-      },
-      {
-        title: "Movie Watchlist #2",
-        img: "src/assets/images/watchlist.jpg",
-        description:
-          "Search and save movies to a personal watchlist with an intuitive and responsive interface.",
-        projectLinks: {
-          site: "#",
-          github: "https://github.com/IhorPanchenko/movie-watchlist",
-        },
-        technologies: ["React.js", "Redux", "API", "Tailwind CSS"],
-      },
-      {
-        title: "Weather-Forecast #2",
-        img: "src/assets/images/forecast.jpg",
-        description:
-          "Utilizes an API key to fetch and display current weather details.",
-        projectLinks: {
-          site: "#",
+          site: "https://ihorpanchenko.github.io/weather-forecast/",
           github: "https://github.com/IhorPanchenko/weather-forecast",
         },
         technologies: ["React.js", "Redux", "API", "HTML/CSS"],
@@ -133,6 +127,13 @@ export const resolvers = {
       },
     ],
     education: () => [
+      {
+        degree: "A1 - C1 Level",
+        period: "2023 - Present",
+        faculty: "German",
+        institution: "Ruhrwerkstatt",
+        location: "Oberhausen, Germany",
+      },
       {
         degree: "Associate in Science Degree",
         period: "2016 - 2018",

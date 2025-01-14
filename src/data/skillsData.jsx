@@ -17,6 +17,7 @@ import {
   FaSearchPlus,
   FaArrowsAltH,
 } from "react-icons/fa";
+import { SiTypescript } from "react-icons/si";
 
 export const skills = [
   {
@@ -34,7 +35,11 @@ export const skills = [
         duration: 2,
       },
       { name: "Sass", icon: <DiSass className="text-pink-500" />, duration: 5 },
-
+      {
+        name: "TypeScript",
+        icon: <SiTypescript className="text-blue-600" />,
+        duration: 2.5,
+      },
       {
         name: "React",
         icon: <DiReact className="text-blue-400" />,

@@ -48,7 +48,7 @@ const About = ({ aboutContent }) => {
             transition={{ duration: 0.5 }}
           >
             <div className="flex flex-col items-center justify-center lg:items-start">
-              <p className="text-lg text-center lg:text-left max-w-xl md:text-2xl">
+              <p className="text-lg text-center lg:text-justify max-w-xl md:text-xl">
                 {description}
               </p>
 

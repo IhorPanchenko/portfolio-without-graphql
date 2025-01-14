@@ -1,15 +1,9 @@
 import { useState, useEffect, useRef } from "react";
-import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { Link } from "react-scroll";
 import { motion } from "framer-motion";
-
-// const navLinks = [
-//   { id: 0, name: "About", to: "about" },
-//   { id: 1, name: "Skills", to: "skills" },
-//   { id: 2, name: "Portfolio", to: "portfolio" },
-//   { id: 3, name: "Experience", to: "experience" },
-//   { id: 4, name: "Education", to: "education" },
-// ];
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import useDarkMode from "../../../hooks/useDarkMode";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const menuVariants = {
   open: {
@@ -32,9 +26,10 @@ const Navbar = ({ navContent }) => {
   const [nav, setNav] = useState(false);
   const [offset, setOffset] = useState(0);
   const [currentTab, setCurrentTab] = useState(null);
+  const [theme, setTheme] = useDarkMode();
   const navRef = useRef(null);
 
-  const { linkedIn, navLinks } = navContent;
+  const { navLinks } = navContent;
 
   useEffect(() => {
     if (navRef.current) {
@@ -54,6 +49,10 @@ const Navbar = ({ navContent }) => {
     setNav(false);
   };
 
+  const toggleTheme = (checked) => {
+    setTheme(checked ? "dark" : "light");
+  };
+
   return (
     <nav
       ref={navRef}
@@ -61,9 +60,10 @@ const Navbar = ({ navContent }) => {
     >
       <div className="mx-auto flex items-center justify-between h-20 px-6 md:px-12 text-xl text-gray-200">
         <a
-          href={linkedIn}
+          href="#"
+          target="_self"
           rel="noopener noreferrer"
-          className="font-bold hover:text-purple-400"
+          className="font-bold cursor-pointer hover:text-purple-400"
         >
           I.Panchenko
         </a>
@@ -86,6 +86,9 @@ const Navbar = ({ navContent }) => {
               </Link>
             </li>
           ))}
+
+          {/* Color Theme Switcher  */}
+          <ThemeSwitcher theme={theme} toggleTheme={toggleTheme} />
         </ul>
 
         {/* Hamburger Menu */}
