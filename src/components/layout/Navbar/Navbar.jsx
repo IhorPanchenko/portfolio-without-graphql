@@ -58,7 +58,7 @@ const Navbar = ({ navContent }) => {
       ref={navRef}
       className="fixed top-0 left-0 w-full z-50 bg-opacity-70 backdrop-blur-md"
     >
-      <div className="mx-auto flex items-center justify-between h-20 px-6 md:px-12 text-xl text-gray-200">
+      <div className="mx-auto flex items-center justify-between h-20 px-6 md:px-12 text-xl text-gray-600 dark:text-gray-200">
         <a
           href="#"
           target="_self"
@@ -77,8 +77,10 @@ const Navbar = ({ navContent }) => {
                 smooth={true}
                 offset={-offset}
                 duration={500}
-                className={`hover:text-purple-400 ${
-                  currentTab === index ? "text-purple-400 font-bold" : ""
+                className={`hover:text-purple-700 dark:hover:text-purple-400 ${
+                  currentTab === index
+                    ? "text-purple-700 dark:text-purple-400 font-bold"
+                    : ""
                 }`}
                 onClick={() => handleLinkClick(index)}
               >
@@ -94,7 +96,7 @@ const Navbar = ({ navContent }) => {
         {/* Hamburger Menu */}
         <button
           onClick={toggleNav}
-          className="md:hidden z-50 text-gray-200 hover:text-purple-400"
+          className="md:hidden z-50 text-gray-800 dark:text-gray-200 hover:text-purple-400"
           aria-label={nav ? "Close navigation menu" : "Open navigation menu"}
         >
           {nav ? <AiOutlineClose size={30} /> : <AiOutlineMenu size={30} />}
@@ -105,7 +107,7 @@ const Navbar = ({ navContent }) => {
           initial={false}
           animate={nav ? "open" : "closed"}
           variants={menuVariants}
-          className="fixed top-0 left-0 w-full min-h-screen bg-gray-900 p-8 text-center text-4xl"
+          className="fixed top-0 left-0 w-full min-h-screen p-8 bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 text-center text-4xl"
         >
           <ul className="text-center text-4xl font-semibold mt-24 space-y-8 cursor-pointer">
             {navLinks.map((link) => (
@@ -124,11 +126,7 @@ const Navbar = ({ navContent }) => {
             ))}
 
             {/* Color Theme Switcher  */}
-            <ThemeSwitcher
-              className="bg-green-600"
-              theme={theme}
-              toggleTheme={toggleTheme}
-            />
+            <ThemeSwitcher theme={theme} toggleTheme={toggleTheme} />
           </ul>
         </motion.div>
       </div>

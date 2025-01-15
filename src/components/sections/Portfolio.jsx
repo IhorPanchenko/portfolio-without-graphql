@@ -26,7 +26,7 @@ const Portfolio = ({ portfolio }) => {
             return (
               <div
                 key={title}
-                className="relative w-[375px] h-[275px] bg-cover bg-no-repeat bg-center border-2 border-purple-900 rounded-lg group transform transition-all duration-300 ease-in-out hover:scale-100 hover:shadow-xl"
+                className="relative w-[375px] h-[275px] bg-cover bg-no-repeat bg-center border-2 border-purple-500 dark:border-purple-900 rounded-lg group transform transition-all duration-300 ease-in-out hover:scale-100 hover:shadow-xl"
                 style={{ backgroundImage: `url(${img})` }}
               >
                 {/* Hover content */}

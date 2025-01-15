@@ -6,26 +6,20 @@ const ThemeSwitcher = ({ theme, toggleTheme }) => {
       <IoSunnyOutline
         onClick={() => toggleTheme(false)}
         size={22}
-        className={`${theme === "dark" ? "text-gray-600" : "text-yellow-400"}`}
+        className="text-yellow-400 dark:text-gray-600"
       />
 
       <div
         onClick={() => toggleTheme(theme !== "dark")}
-        className={`${
-          theme === "dark" ? "bg-purple-600" : "bg-gray-200"
-        } relative inline-flex h-6 w-11 items-center rounded-full cursor-pointer`}
+        className="relative inline-flex h-6 w-11 items-center rounded-full cursor-pointer bg-gray-200 dark:bg-purple-600"
       >
-        <span
-          className={`${
-            theme === "dark" ? "translate-x-6" : "translate-x-1"
-          } inline-block h-4 w-4 transform rounded-full bg-white transition`}
-        ></span>
+        <span className="inline-block h-4 w-4 transform rounded-full bg-white transition translate-x-1 dark:translate-x-6"></span>
       </div>
 
       <IoMoonOutline
         onClick={() => toggleTheme(true)}
         size={22}
-        className={`${theme === "dark" ? "text-purple-600" : "text-gray-600"}`}
+        className="text-gray-600 dark:text-purple-600"
       />
     </div>
   );

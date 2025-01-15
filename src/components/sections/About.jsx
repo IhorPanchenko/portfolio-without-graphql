@@ -8,7 +8,7 @@ const About = ({ aboutContent }) => {
 
   return (
     <section
-      className="flex flex-col mx-auto text-gray-300 border-b border-gray-700"
+      className="flex flex-col mx-auto text-gray-800 dark:text-gray-300 border-b border-gray-700"
       id="about"
       aria-labelledby="about-heading"
     >
@@ -17,7 +17,6 @@ const About = ({ aboutContent }) => {
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -100 }}
         transition={{ duration: 0.5 }}
-        // viewport={{ once: true }}
       >
         About <span>Me</span>
       </motion.h2>
@@ -33,7 +32,7 @@ const About = ({ aboutContent }) => {
           >
             <div className="flex justify-center">
               <img
-                className="max-h-[520px] border-2 border-purple-900 rounded-lg"
+                className="max-h-[520px] border-2 border-purple-500 dark:border-purple-900 rounded-lg"
                 src={aboutpic}
                 alt="Hero profile picture"
               />
@@ -56,9 +55,9 @@ const About = ({ aboutContent }) => {
                 {languages.map((item) => (
                   <div
                     key={`${item.level}-${item.label}`}
-                    className="flex flex-col items-center justify-center bg-gray-800/40 rounded-lg w-24 h-24 md:w-32 md:h-32"
+                    className="flex flex-col items-center justify-center bg-gray-300/40 dark:bg-gray-800/40 rounded-lg w-24 h-24 md:w-32 md:h-32"
                   >
-                    <h3 className="text-3xl font-semibold text-white md:text-4xl">
+                    <h3 className="text-3xl font-semibold text-gray-900 dark:text-white md:text-4xl">
                       {item.level}
                     </h3>
                     <p className="text-sm md:text-base text-center">

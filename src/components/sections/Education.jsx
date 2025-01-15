@@ -6,13 +6,12 @@ const Education = ({ education }) => {
   return (
     <section
       id="education"
-      className="flex flex-col border-b border-gray-700 text-gray-300"
+      className="flex flex-col border-b border-gray-700 text-gray-800 dark:text-gray-300"
     >
       <motion.h2
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -100 }}
         transition={{ duration: 0.5 }}
-        // viewport={{ once: true }}
       >
         Education
       </motion.h2>
@@ -30,7 +29,6 @@ const Education = ({ education }) => {
               whileInView={{ opacity: 1, x: 0 }}
               initial={{ opacity: 0, x: -100 }}
               transition={{ duration: 1 }}
-              // viewport={{ once: true }}
               className="w-full md:w-1/4"
             >
               <p className="mb-2 text-base">{eduRecord.period}</p>
@@ -40,14 +38,13 @@ const Education = ({ education }) => {
               whileInView={{ opacity: 1, x: 0 }}
               initial={{ opacity: 0, x: 100 }}
               transition={{ duration: 1 }}
-              // viewport={{ once: true }}
               className="w-full max-w-xl md:w-3/4"
             >
               <h4 className="mb-2 text-lg font-semibold">
                 {eduRecord.faculty} -{" "}
                 <span className="text-base">{eduRecord.degree}</span>
               </h4>
-              <p className="text-base text-gray-400 text-justify">
+              <p className="text-base text-gray-600 dark:text-gray-400 text-justify">
                 {eduRecord.institution}, {eduRecord.location}
               </p>
             </motion.div>

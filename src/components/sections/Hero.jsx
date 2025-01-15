@@ -13,7 +13,7 @@ const SocialMediaLink = ({ href, ariaLabel, icon }) => (
     whileHover={{ scale: 1.2 }}
     href={href}
     aria-label={ariaLabel}
-    className="text-purple-400"
+    className="text-purple-600 dark:text-purple-400"
   >
     {icon}
   </motion.a>
@@ -38,7 +38,7 @@ const Hero = ({ heroContent }) => {
               sequence={titles.flatMap((title) => [title, 1000])}
               speed={50}
               repeat={Infinity}
-              className="font-bold text-gray-100 text-xl md:text-3xl lg:text-5xl italic mb-4"
+              className="font-bold text-gray-600 dark:text-gray-100 text-xl md:text-3xl lg:text-5xl italic mb-4"
             />
 
             {/* Main greeting message */}
@@ -47,10 +47,12 @@ const Hero = ({ heroContent }) => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.5 }}
-              className="text-gray-200 text-3xl text-center lg:text-left md:text-5xl lg:text-6xl tracking-tight mb-4 uppercase"
+              className="text-gray-800 dark:text-gray-200 text-3xl text-center lg:text-left md:text-5xl lg:text-6xl tracking-tight mb-4 uppercase"
             >
               Hey, I am <br />
-              <span className="text-purple-500">{name}</span>
+              <span className="text-purple-600 dark:text-purple-500">
+                {name}
+              </span>
             </motion.p>
 
             {/* Bio paragraph */}
@@ -59,7 +61,7 @@ const Hero = ({ heroContent }) => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 1 }}
-              className="text-gray-300 max-w-[500px] md:max-w-[600px] text-center lg:text-left text-lg md:text-2xl mb-6"
+              className="text-gray-800 dark:text-gray-300 max-w-[500px] md:max-w-[600px] text-center lg:text-left text-lg md:text-2xl mb-6"
             >
               {bio}
             </motion.p>
@@ -80,13 +82,13 @@ const Hero = ({ heroContent }) => {
                   boxShadow: "0px 0px 8px rgba(0, 0, 0, 0.3)",
                 }}
                 aria-label="Download CV"
-                className="z-10 cursor-pointer font-bold text-gray-200 md:w-auto p-4 border border-purple-400 rounded-xl"
+                className="z-10 cursor-pointer text-sm sm:text-lg font-bold text-gray-900 dark:text-gray-200 md:w-auto p-4 border border-purple-600 dark:border-purple-400 rounded-xl"
               >
                 Download CV
               </motion.a>
 
               {/* Social media icons */}
-              <div className="flex flex-row gap-6 text-4xl md:text-6xl text-purple-400 z-20">
+              <div className="flex flex-row gap-6 text-4xl md:text-6xlz-20">
                 <SocialMediaLink
                   href={socialLinks.github}
                   ariaLabel="GitHub Profile"
@@ -113,7 +115,7 @@ const Hero = ({ heroContent }) => {
             <motion.img
               src={heropic}
               alt={name}
-              className="hidden lg:block max-h-[550px] border-2 border-purple-900 rounded-lg shadow-lg"
+              className="hidden lg:block max-h-[550px] border-2 border-purple-500 dark:border-purple-900 rounded-lg shadow-lg"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}

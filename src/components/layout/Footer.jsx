@@ -7,21 +7,21 @@ const Footer = ({ heroContent }) => {
   const { github, linkedin, email } = socialLinks;
 
   return (
-    <footer className="mx-auto px-8 py-4 md:py-8 flex flex-row items-center justify-between max-w-[1300px] text-sm text-gray-400">
+    <footer className="mx-auto px-8 py-4 md:py-8 flex flex-row items-center justify-between max-w-[1300px] text-sm text-gray-800 dark:text-gray-400">
       <motion.div
         whileInView={{ opacity: 1, x: 0 }}
         initial={{ opacity: 0, x: -100 }}
         transition={{ duration: 1 }}
       >
         <p>© {name}</p>
-        <span className="text-gray-400">{email}</span>
+        <span className="text-gray-800 dark:text-gray-400">{email}</span>
       </motion.div>
 
       <motion.div
         whileInView={{ opacity: 1, x: 0 }}
         initial={{ opacity: 0, x: 100 }}
         transition={{ duration: 1 }}
-        className="flex justify-center gap-x-3 sm:gap-x-6 text-4xl text-purple-400"
+        className="flex justify-center gap-x-3 sm:gap-x-6 text-4xl text-purple-600 dark:text-purple-400"
       >
         <motion.a
           whileHover={{

@@ -27,14 +27,13 @@ const Skills = () => {
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -100 }}
         transition={{ duration: 0.5 }}
-        // viewport={{ once: true }}
       >
         <span>My </span>Skills
       </motion.h2>
 
       <Reveal>
         {/* Skills container */}
-        <div className="flex flex-col text-gray-200 space-y-8 lg:space-y-0">
+        <div className="flex flex-col text-gray-700 dark:text-gray-200 space-y-8 lg:space-y-0">
           {skills.map((skill) => (
             <article
               key={skill.category}
@@ -59,12 +58,12 @@ const Skills = () => {
                     className="flex flex-col items-center text-center min-[470px]:text-left space-y-2 min-[470px]:flex-row min-[470px]:space-y-0 space-x-2 lg:space-x-8"
                   >
                     {/* Technology icon with animation */}
-                    <div className="rounded-xl border md:border-2 border-gray-800 p-2 lg:p-3">
+                    <div className="rounded-xl border md:border-2 border-gray-400 dark:border-gray-800 p-2 lg:p-3">
                       <span className="text-5xl md:text-7xl" aria-hidden="true">
                         {tech.icon}
                       </span>
                     </div>
-                    <span className="text-lg lg:text-3xl text-gray-300">
+                    <span className="text-lg lg:text-3xl text-gray-800 dark:text-gray-300">
                       {tech.name}
                     </span>
                   </motion.div>
