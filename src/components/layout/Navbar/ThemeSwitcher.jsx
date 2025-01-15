@@ -2,7 +2,7 @@ import { IoSunnyOutline, IoMoonOutline } from "react-icons/io5";
 
 const ThemeSwitcher = ({ theme, toggleTheme }) => {
   return (
-    <div className="flex items-center space-x-3">
+    <div className="flex items-center justify-center space-x-3">
       <IoSunnyOutline
         onClick={() => toggleTheme(false)}
         size={22}
@@ -12,7 +12,7 @@ const ThemeSwitcher = ({ theme, toggleTheme }) => {
       <div
         onClick={() => toggleTheme(theme !== "dark")}
         className={`${
-          theme === "dark" ? "bg-[#635fc7]" : "bg-gray-200"
+          theme === "dark" ? "bg-purple-600" : "bg-gray-200"
         } relative inline-flex h-6 w-11 items-center rounded-full cursor-pointer`}
       >
         <span

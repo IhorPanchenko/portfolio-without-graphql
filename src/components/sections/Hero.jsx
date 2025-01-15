@@ -6,7 +6,7 @@ import {
   AiOutlineLinkedin,
   AiOutlineMail,
 } from "react-icons/ai";
-import profilepic from "../../assets/images/profpic.png";
+import heropic from "../../assets/images/heropic.jpg";
 
 const SocialMediaLink = ({ href, ariaLabel, icon }) => (
   <motion.a
@@ -108,12 +108,12 @@ const Hero = ({ heroContent }) => {
         </motion.div>
 
         {/* Profile image with fade-in effect */}
-        <div className="w-full lg:w-1/2 mt-8 lg:mt-0 lg:p-8">
+        <div className="w-full lg:w-1/2 mt-8 lg:mt-0">
           <div className="flex justify-center">
             <motion.img
-              src={profilepic}
+              src={heropic}
               alt={name}
-              className="w-[300px] md:w-[450px]"
+              className="hidden lg:block max-h-[550px] border-2 border-purple-900 rounded-lg shadow-lg"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}

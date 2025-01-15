@@ -29,12 +29,12 @@ export const skills = [
         duration: 2.5,
       },
       { name: "CSS", icon: <DiCss3 className="text-blue-600" />, duration: 3 },
+      { name: "Sass", icon: <DiSass className="text-pink-500" />, duration: 5 },
       {
         name: "JavaScript",
         icon: <DiJavascript1 className="text-yellow-500" />,
         duration: 2,
       },
-      { name: "Sass", icon: <DiSass className="text-pink-500" />, duration: 5 },
       {
         name: "TypeScript",
         icon: <SiTypescript className="text-blue-600" />,
@@ -46,25 +46,25 @@ export const skills = [
         duration: 4,
       },
       {
-        name: "Tailwind",
-        icon: <RiTailwindCssFill className="text-teal-500" />,
-        duration: 6,
-      },
-      {
         name: "Redux",
         icon: <BiLogoRedux className="text-teal-500" />,
         duration: 2,
       },
-      { name: "Git", icon: <DiGit className="text-red-600" />, duration: 3 },
       {
-        name: "GraphQL",
-        icon: <BiLogoGraphql className="text-purple-900" />,
+        name: "Tailwind",
+        icon: <RiTailwindCssFill className="text-teal-500" />,
         duration: 6,
       },
       {
         name: "Vite",
         icon: <TbBrandVite className="text-orange-500" />,
         duration: 4.5,
+      },
+      { name: "Git", icon: <DiGit className="text-red-600" />, duration: 3 },
+      {
+        name: "GraphQL",
+        icon: <BiLogoGraphql className="text-purple-900" />,
+        duration: 6,
       },
     ],
   },
@@ -77,14 +77,9 @@ export const skills = [
         duration: 2.5,
       },
       {
-        name: "Problem-Solving",
-        icon: <FaPuzzlePiece className="text-teal-500" />,
-        duration: 6,
-      },
-      {
-        name: "Time Management",
-        icon: <FaRegClock className="text-yellow-500" />,
-        duration: 2,
+        name: "Flexibility",
+        icon: <FaArrowsAltH className="text-blue-500" />,
+        duration: 5,
       },
       {
         name: "Adaptability",
@@ -92,14 +87,19 @@ export const skills = [
         duration: 4,
       },
       {
+        name: "Problem-Solving",
+        icon: <FaPuzzlePiece className="text-teal-500" />,
+        duration: 6,
+      },
+      {
         name: "Attention to Detail",
         icon: <FaSearchPlus className="text-red-500" />,
         duration: 3,
       },
       {
-        name: "Flexibility",
-        icon: <FaArrowsAltH className="text-blue-500" />,
-        duration: 5,
+        name: "Time Management",
+        icon: <FaRegClock className="text-yellow-500" />,
+        duration: 2,
       },
     ],
   },

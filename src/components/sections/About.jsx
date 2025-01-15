@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 import Reveal from "../UI/Reveal";
-import heropic from "../../assets/images/heropic.jpg";
+import aboutpic from "../../assets/images/aboutpic.jpg";
 
 const About = ({ aboutContent }) => {
   const { description, languages } = aboutContent;
@@ -33,8 +33,8 @@ const About = ({ aboutContent }) => {
           >
             <div className="flex justify-center">
               <img
-                className="w-[400px] md:w-[500px] rounded-2xl"
-                src={heropic}
+                className="max-h-[520px] border-2 border-purple-900 rounded-lg"
+                src={aboutpic}
                 alt="Hero profile picture"
               />
             </div>

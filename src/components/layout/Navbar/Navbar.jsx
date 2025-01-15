@@ -122,6 +122,13 @@ const Navbar = ({ navContent }) => {
                 </Link>
               </li>
             ))}
+
+            {/* Color Theme Switcher  */}
+            <ThemeSwitcher
+              className="bg-green-600"
+              theme={theme}
+              toggleTheme={toggleTheme}
+            />
           </ul>
         </motion.div>
       </div>

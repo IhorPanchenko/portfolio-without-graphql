@@ -40,7 +40,7 @@ export const resolvers = {
         },
         technologies: [
           "React.js",
-          "Vite",
+          "Redux",
           "Tailwind CSS",
           "React Beautiful DnD",
         ],
@@ -128,7 +128,7 @@ export const resolvers = {
     ],
     education: () => [
       {
-        degree: "A1 - C1 Level",
+        degree: "A1 — C1 Level",
         period: "2023 - Present",
         faculty: "German",
         institution: "Ruhrwerkstatt",
