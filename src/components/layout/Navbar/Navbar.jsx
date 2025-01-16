@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import useDarkMode from "../../../hooks/useDarkMode";
 import ThemeSwitcher from "./ThemeSwitcher";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const menuVariants = {
   open: {
@@ -22,7 +23,7 @@ const menuVariants = {
   },
 };
 
-const Navbar = ({ navContent }) => {
+const Navbar = ({ navContent, handleLanguageChange, currentLanguage }) => {
   const [nav, setNav] = useState(false);
   const [offset, setOffset] = useState(0);
   const [currentTab, setCurrentTab] = useState(null);
@@ -69,7 +70,7 @@ const Navbar = ({ navContent }) => {
         </a>
 
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex gap-6 lg:gap-12 cursor-pointer">
+        <ul className="hidden min-[970px]:flex gap-6 lg:gap-6 xl:gap-12 cursor-pointer">
           {navLinks.map((link, index) => (
             <li key={link.name}>
               <Link
@@ -91,12 +92,18 @@ const Navbar = ({ navContent }) => {
 
           {/* Color Theme Switcher  */}
           <ThemeSwitcher theme={theme} toggleTheme={toggleTheme} />
+
+          {/* Language Switcher  */}
+          <LanguageSwitcher
+            handleLanguageChange={handleLanguageChange}
+            currentLanguage={currentLanguage}
+          />
         </ul>
 
         {/* Hamburger Menu */}
         <button
           onClick={toggleNav}
-          className="md:hidden z-50 text-gray-800 dark:text-gray-200 hover:text-purple-400"
+          className="min-[970px]:hidden z-50 text-gray-800 dark:text-gray-200 hover:text-purple-400"
           aria-label={nav ? "Close navigation menu" : "Open navigation menu"}
         >
           {nav ? <AiOutlineClose size={30} /> : <AiOutlineMenu size={30} />}
@@ -127,6 +134,12 @@ const Navbar = ({ navContent }) => {
 
             {/* Color Theme Switcher  */}
             <ThemeSwitcher theme={theme} toggleTheme={toggleTheme} />
+
+            {/* Language Switcher  */}
+            <LanguageSwitcher
+              handleLanguageChange={handleLanguageChange}
+              currentLanguage={currentLanguage}
+            />
           </ul>
         </motion.div>
       </div>

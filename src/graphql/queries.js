@@ -1,15 +1,15 @@
 import { gql } from "@apollo/client";
 
 export const GET_ALL_CONTENT = gql`
-  query GetAllContent {
-    navContent {
+  query GetAllContent($language: String!) {
+    navContent(language: $language) {
       linkedin
       navLinks {
         name
         to
       }
     }
-    heroContent {
+    heroContent(language: $language) {
       name
       bio
       titles

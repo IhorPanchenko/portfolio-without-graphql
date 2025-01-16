@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_ALL_CONTENT } from "./graphql/queries";
 import Navbar from "./components/layout/Navbar/Navbar";
@@ -11,14 +12,27 @@ import ShinyEffect from "./components/UI/ShinyEffect";
 import Education from "./components/sections/Education";
 
 export default function App() {
-  const { data, loading, error } = useQuery(GET_ALL_CONTENT);
+  const [currentLanguage, setCurrentLanguage] = useState("en");
+
+  const { data, loading, error, refetch } = useQuery(GET_ALL_CONTENT, {
+    variables: { language: currentLanguage },
+  });
+
+  const handleLanguageChange = (lang) => {
+    setCurrentLanguage(lang);
+    refetch({ language: lang });
+  };
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
   return (
     <div className="relative overflow-hidden selection:bg-purple-400 selection:text-gray-800">
-      <Navbar navContent={data.navContent} />
+      <Navbar
+        navContent={data.navContent}
+        handleLanguageChange={handleLanguageChange}
+        currentLanguage={currentLanguage}
+      />
 
       <main className="mx-auto max-w-[1300px] px-8">
         <Hero heroContent={data.heroContent} />
