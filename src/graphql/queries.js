@@ -19,14 +19,14 @@ export const GET_ALL_CONTENT = gql`
         email
       }
     }
-    aboutContent {
+    aboutContent(language: $language) {
       languages {
         level
         label
       }
       description
     }
-    portfolio {
+    portfolio(language: $language) {
       title
       img
       description
@@ -36,14 +36,14 @@ export const GET_ALL_CONTENT = gql`
       }
       technologies
     }
-    experience {
+    experience(language: $language) {
       company
       period
       role
       technologies
       description
     }
-    education {
+    education(language: $language) {
       degree
       period
       faculty

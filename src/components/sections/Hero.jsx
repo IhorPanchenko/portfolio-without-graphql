@@ -110,18 +110,16 @@ const Hero = ({ heroContent }) => {
         </motion.div>
 
         {/* Profile image with fade-in effect */}
-        <div className="w-full lg:w-1/2 mt-8 lg:mt-0">
-          <div className="flex justify-center">
-            <motion.img
-              src={heropic}
-              alt={name}
-              className="hidden lg:block max-h-[550px] border-2 border-purple-500 dark:border-purple-900 rounded-lg shadow-lg"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1 }}
-            />
-          </div>
+        <div className="w-full flex justify-center items-center lg:w-1/2 mt-8 lg:mt-0">
+          <motion.img
+            src={heropic}
+            alt={name}
+            className="hidden lg:block max-h-[550px] border-2 border-purple-500 dark:border-purple-900 rounded-lg shadow-lg"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+          />
         </div>
       </div>
     </section>

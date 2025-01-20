@@ -66,9 +66,9 @@ export const typeDefs = gql`
   type Query {
     navContent(language: String!): NavContent
     heroContent(language: String!): HeroContent
-    aboutContent: AboutContent
-    portfolio: [Portfolio]
-    experience: [Experience]
-    education: [Education]
+    aboutContent(language: String!): AboutContent
+    portfolio(language: String!): [Portfolio]
+    experience(language: String!): [Experience]
+    education(language: String!): [Education]
   }
 `;
