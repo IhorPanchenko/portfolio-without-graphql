@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Reveal from "../UI/Reveal";
 
 const Education = ({ education }) => {
+  const { heading, content } = education;
   return (
     <section
       id="education"
@@ -13,10 +14,10 @@ const Education = ({ education }) => {
         initial={{ opacity: 0, y: -100 }}
         transition={{ duration: 0.5 }}
       >
-        Education
+        {heading}
       </motion.h2>
 
-      {education.map((eduRecord) => (
+      {content.map((eduRecord) => (
         <Reveal key={eduRecord.period}>
           <motion.article
             initial="hidden"
@@ -56,15 +57,18 @@ const Education = ({ education }) => {
 };
 
 Education.propTypes = {
-  education: PropTypes.arrayOf(
-    PropTypes.shape({
-      period: PropTypes.string.isRequired,
-      faculty: PropTypes.string.isRequired,
-      degree: PropTypes.string.isRequired,
-      institution: PropTypes.string.isRequired,
-      location: PropTypes.string.isRequired,
-    })
-  ).isRequired,
+  education: PropTypes.shape({
+    heading: PropTypes.string.isRequired,
+    content: PropTypes.arrayOf(
+      PropTypes.shape({
+        degree: PropTypes.string.isRequired,
+        period: PropTypes.string.isRequired,
+        faculty: PropTypes.string.isRequired,
+        institution: PropTypes.string.isRequired,
+        location: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+  }).isRequired,
 };
 
 export default Education;

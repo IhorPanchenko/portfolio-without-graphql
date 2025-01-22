@@ -18,20 +18,27 @@ export const typeDefs = gql`
   }
 
   type HeroContent {
+    greetings: String
     name: String
     bio: String
     titles: [String]
     socialLinks: SocialLinks
   }
 
+  type Language {
+    level: String
+    label: String
+  }
+
   type AboutContent {
+    heading: String
     languages: [Language]
     description: String
   }
 
-  type Language {
-    level: String
-    label: String
+  type ProjectLinks {
+    site: String
+    github: String
   }
 
   type Portfolio {
@@ -42,12 +49,7 @@ export const typeDefs = gql`
     technologies: [String]
   }
 
-  type ProjectLinks {
-    site: String
-    github: String
-  }
-
-  type Experience {
+  type ExperienceContent {
     company: String
     period: String
     role: String
@@ -55,7 +57,12 @@ export const typeDefs = gql`
     description: String
   }
 
-  type Education {
+  type Experience {
+    heading: String
+    content: [ExperienceContent]
+  }
+
+  type EducationContent {
     degree: String
     period: String
     faculty: String
@@ -63,12 +70,17 @@ export const typeDefs = gql`
     location: String
   }
 
+  type Education {
+    heading: String
+    content: [EducationContent]
+  }
+
   type Query {
     navContent(language: String!): NavContent
     heroContent(language: String!): HeroContent
     aboutContent(language: String!): AboutContent
     portfolio(language: String!): [Portfolio]
-    experience(language: String!): [Experience]
-    education(language: String!): [Education]
+    experience(language: String!): Experience
+    education(language: String!): Education
   }
 `;

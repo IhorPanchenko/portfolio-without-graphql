@@ -28,6 +28,7 @@ export const resolvers = {
     heroContent: (_, { language }) => {
       const data = {
         en: {
+          greetings: "Hey, I am",
           name: "Ihor Panchenko",
           bio: "As a passionate Junior Frontend Developer, I specialize in creating responsive and visually engaging web applications. Leveraging modern tools like React, Redux, and Tailwind CSS, I focus on crafting user-centric experiences with clean, efficient code. I am committed to continuous learning and growth in frontend development, eager to contribute to projects that make a meaningful impact.",
           titles: ["Frontend Developer", "Web Developer", "UI Engineer"],
@@ -38,6 +39,7 @@ export const resolvers = {
           },
         },
         de: {
+          greetings: "Hey, ich bin",
           name: "Ihor Panchenko",
           bio: "Als leidenschaftlicher Junior Frontend-Entwickler spezialisiere ich mich auf die Erstellung reaktionsschneller und visuell ansprechender Webanwendungen. Mit modernen Tools wie React, Redux und Tailwind CSS konzentriere ich mich darauf, benutzerzentrierte Erlebnisse mit sauberem, effizientem Code zu gestalten. Ich bin bestrebt, kontinuierlich zu lernen und mich im Bereich Frontend-Entwicklung weiterzuentwickeln und freue mich darauf, zu Projekten beizutragen, die einen bedeutenden Einfluss haben.",
           titles: ["Frontend-Entwickler", "Webentwickler", "UI-Ingenieur"],
@@ -53,6 +55,7 @@ export const resolvers = {
     aboutContent: (_, { language }) => {
       const data = {
         en: {
+          heading: "About Me",
           languages: [
             { level: "C1", label: "English" },
             { level: "B2", label: "German" },
@@ -61,6 +64,7 @@ export const resolvers = {
             "As a Junior Frontend Developer, I am continuously honing my skills through hands-on projects to deepen my understanding of frontend technologies. My academic background includes a Bachelor's Degree in Information Technology, a Specialist's Degree in Information Management Systems, and an Associate's Degree in Computer Programming. I am proficient in English (C1) and German (B2), with Ukrainian and Russian as my native languages. Currently, I am focused on improving my German language skills and am working toward achieving my C1 certification by May 2025. With a strong commitment to both technical and language proficiency, I strive for well-rounded growth to enhance my contributions in the frontend development field.",
         },
         de: {
+          heading: "Über Mich",
           languages: [
             { level: "C1", label: "Englisch" },
             { level: "B2", label: "Deutsch" },
@@ -202,143 +206,155 @@ export const resolvers = {
     },
     experience: (_, { language }) => {
       const data = {
-        en: [
-          {
-            company: "APEX Global Solutions LLC",
-            period: "02/2020 - 02/2023",
-            role: "Senior Accounts Payable Representative",
-            technologies: [
-              "Microsoft Dynamics",
-              "Problem Solving",
-              "Accounts Reconciliation",
-              "Team/Vendor Communication",
-            ],
-            description:
-              "Training and supporting new team members in onboarding processes and tools. Planning and executing supplier payments, handling inquiries regarding outstanding amounts. Managing supplier accounts and reconciling costs and balances.",
-          },
-          {
-            company: "APEX Global Solutions LLC",
-            period: "07/2019 - 02/2020",
-            role: "Accounts Payable Representative",
-            technologies: [
-              "Microsoft Dynamics",
-              "Invoice Processing",
-              "Financial Reporting",
-              "Attention to Detail",
-            ],
-            description:
-              "Monitoring all payments and expenses, including invoices and bank statements. Creating account analyses and monthly reports. Preparing and compiling invoices for payment.",
-          },
-          {
-            company: "NTC | Nationwide Title Clearing",
-            period: "06/2018- 03/2019",
-            role: "Junior Frontend Developer",
-            technologies: ["JavaScript", "React.js", "Tailwind", "HTML/CSS"],
-            description:
-              "Developing responsive web applications using React.js and JavaScript. Styling components with Sass and creating custom themes using Tailwind CSS to enhance user experience.",
-          },
-        ],
-        de: [
-          {
-            company: "APEX Global Solutions LLC",
-            period: "02/2020 - 02/2023",
-            role: "Senior Accounts Payable Representative",
-            technologies: [
-              "Microsoft Dynamics",
-              "Problemlösung",
-              "Kontenabstimmung",
-              "Team-/Lieferantenkommunikation",
-            ],
-            description:
-              "Schulung und Unterstützung neuer Teammitglieder in den Onboarding-Prozessen und Tools. Planung und Durchführung von Lieferantenzahlungen, Bearbeitung von Anfragen zu offenen Beträgen. Verwaltung von Lieferantenkonten und Abstimmung von Kosten und Salden.",
-          },
-          {
-            company: "APEX Global Solutions LLC",
-            period: "07/2019 - 02/2020",
-            role: "Accounts Payable Representative",
-            technologies: [
-              "Microsoft Dynamics",
-              "Rechnungsbearbeitung",
-              "Finanzberichterstattung",
-              "Detailgenauigkeit",
-            ],
-            description:
-              "Überwachung aller Zahlungen und Ausgaben, einschließlich Rechnungen und Bankauszügen. Erstellung von Kontoanalysen und monatlichen Berichten. Vorbereitung und Zusammenstellung von Rechnungen zur Zahlung.",
-          },
-          {
-            company: "NTC | Nationwide Title Clearing",
-            period: "06/2018- 03/2019",
-            role: "Junior Frontend Developer",
-            technologies: ["JavaScript", "React.js", "Tailwind", "HTML/CSS"],
-            description:
-              "Entwicklung von responsiven Webanwendungen mit React.js und JavaScript. Styling von Komponenten mit Sass und Erstellung benutzerdefinierter Designs mit Tailwind CSS zur Verbesserung der Benutzererfahrung.",
-          },
-        ],
+        en: {
+          heading: "Experience",
+          content: [
+            {
+              company: "APEX Global Solutions LLC",
+              period: "02/2020 - 02/2023",
+              role: "Senior Accounts Payable Representative",
+              technologies: [
+                "Microsoft Dynamics",
+                "Problem Solving",
+                "Accounts Reconciliation",
+                "Team/Vendor Communication",
+              ],
+              description:
+                "Training and supporting new team members in onboarding processes and tools. Planning and executing supplier payments, handling inquiries regarding outstanding amounts. Managing supplier accounts and reconciling costs and balances.",
+            },
+            {
+              company: "APEX Global Solutions LLC",
+              period: "07/2019 - 02/2020",
+              role: "Accounts Payable Representative",
+              technologies: [
+                "Microsoft Dynamics",
+                "Invoice Processing",
+                "Financial Reporting",
+                "Attention to Detail",
+              ],
+              description:
+                "Monitoring all payments and expenses, including invoices and bank statements. Creating account analyses and monthly reports. Preparing and compiling invoices for payment.",
+            },
+            {
+              company: "NTC | Nationwide Title Clearing",
+              period: "06/2018- 03/2019",
+              role: "Junior Frontend Developer",
+              technologies: ["JavaScript", "React.js", "Tailwind", "HTML/CSS"],
+              description:
+                "Developing responsive web applications using React.js and JavaScript. Styling components with Sass and creating custom themes using Tailwind CSS to enhance user experience.",
+            },
+          ],
+        },
+        de: {
+          heading: "Erfahrung",
+          content: [
+            {
+              company: "APEX Global Solutions LLC",
+              period: "02/2020 - 02/2023",
+              role: "Senior Accounts Payable Representative",
+              technologies: [
+                "Microsoft Dynamics",
+                "Problemlösung",
+                "Kontenabstimmung",
+                "Team-/Lieferantenkommunikation",
+              ],
+              description:
+                "Schulung und Unterstützung neuer Teammitglieder in den Onboarding-Prozessen und Tools. Planung und Durchführung von Lieferantenzahlungen, Bearbeitung von Anfragen zu offenen Beträgen. Verwaltung von Lieferantenkonten und Abstimmung von Kosten und Salden.",
+            },
+            {
+              company: "APEX Global Solutions LLC",
+              period: "07/2019 - 02/2020",
+              role: "Accounts Payable Representative",
+              technologies: [
+                "Microsoft Dynamics",
+                "Rechnungsbearbeitung",
+                "Finanzberichterstattung",
+                "Detailgenauigkeit",
+              ],
+              description:
+                "Überwachung aller Zahlungen und Ausgaben, einschließlich Rechnungen und Bankauszügen. Erstellung von Kontoanalysen und monatlichen Berichten. Vorbereitung und Zusammenstellung von Rechnungen zur Zahlung.",
+            },
+            {
+              company: "NTC | Nationwide Title Clearing",
+              period: "06/2018- 03/2019",
+              role: "Junior Frontend Developer",
+              technologies: ["JavaScript", "React.js", "Tailwind", "HTML/CSS"],
+              description:
+                "Entwicklung von responsiven Webanwendungen mit React.js und JavaScript. Styling von Komponenten mit Sass und Erstellung benutzerdefinierter Designs mit Tailwind CSS zur Verbesserung der Benutzererfahrung.",
+            },
+          ],
+        },
       };
       return data[language];
     },
     education: (_, { language }) => {
       const data = {
-        en: [
-          {
-            degree: "A1 — C1 Level",
-            period: "2023 - Present",
-            faculty: "German",
-            institution: "Ruhrwerkstatt",
-            location: "Oberhausen, Germany",
-          },
-          {
-            degree: "Associate in Science Degree",
-            period: "2016 - 2018",
-            faculty: "Computer Programming",
-            institution: "Hillsborough Community College",
-            location: "Tampa, FL, US",
-          },
-          {
-            degree: "Specialist's Degree",
-            period: "2012 - 2013",
-            faculty: "Information Management Systems and Technologies",
-            institution: "Odesa National Academy",
-            location: "Odesa, Ukraine",
-          },
-          {
-            degree: "Bachelor's Degree",
-            period: "2008 - 2012",
-            faculty: "Information Technology",
-            institution: "Odesa National Academy",
-            location: "Odesa, Ukraine",
-          },
-        ],
-        de: [
-          {
-            degree: "A1 — C1 Niveau",
-            period: "2023 - Gegenwart",
-            faculty: "Deutsch",
-            institution: "Ruhrwerkstatt",
-            location: "Oberhausen, Deutschland",
-          },
-          {
-            degree: "Associate Degree in Science",
-            period: "2016 - 2018",
-            faculty: "Computerprogrammierung",
-            institution: "Hillsborough Community College",
-            location: "Tampa, FL, USA",
-          },
-          {
-            degree: "Spezialistenabschluss",
-            period: "2012 - 2013",
-            faculty: "Informationsmanagementsysteme und -technologien",
-            institution: "Odesa National Academy",
-            location: "Odesa, Ukraine",
-          },
-          {
-            degree: "Bachelor-Abschluss",
-            period: "2008 - 2012",
-            faculty: "Informationstechnologie",
-            institution: "Odesa National Academy",
-            location: "Odesa, Ukraine",
-          },
-        ],
+        en: {
+          heading: "Education",
+          content: [
+            {
+              degree: "A1 — C1 Level",
+              period: "2023 - Present",
+              faculty: "German",
+              institution: "Ruhrwerkstatt",
+              location: "Oberhausen, Germany",
+            },
+            {
+              degree: "Associate in Science Degree",
+              period: "2016 - 2018",
+              faculty: "Computer Programming",
+              institution: "Hillsborough Community College",
+              location: "Tampa, FL, US",
+            },
+            {
+              degree: "Specialist's Degree",
+              period: "2012 - 2013",
+              faculty: "Information Management Systems and Technologies",
+              institution: "Odesa National Academy",
+              location: "Odesa, Ukraine",
+            },
+            {
+              degree: "Bachelor's Degree",
+              period: "2008 - 2012",
+              faculty: "Information Technology",
+              institution: "Odesa National Academy",
+              location: "Odesa, Ukraine",
+            },
+          ],
+        },
+        de: {
+          heading: "Ausbildung",
+          content: [
+            {
+              degree: "A1 — C1 Niveau",
+              period: "2023 - Gegenwart",
+              faculty: "Deutsch",
+              institution: "Ruhrwerkstatt",
+              location: "Oberhausen, Deutschland",
+            },
+            {
+              degree: "Associate Degree in Science",
+              period: "2016 - 2018",
+              faculty: "Computerprogrammierung",
+              institution: "Hillsborough Community College",
+              location: "Tampa, FL, USA",
+            },
+            {
+              degree: "Spezialistenabschluss",
+              period: "2012 - 2013",
+              faculty: "Informationsmanagementsysteme und -technologien",
+              institution: "Odesa National Academy",
+              location: "Odesa, Ukraine",
+            },
+            {
+              degree: "Bachelor-Abschluss",
+              period: "2008 - 2012",
+              faculty: "Informationstechnologie",
+              institution: "Odesa National Academy",
+              location: "Odesa, Ukraine",
+            },
+          ],
+        },
       };
       return data[language];
     },

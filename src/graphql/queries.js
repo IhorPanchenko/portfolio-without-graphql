@@ -10,6 +10,7 @@ export const GET_ALL_CONTENT = gql`
       }
     }
     heroContent(language: $language) {
+      greetings
       name
       bio
       titles
@@ -20,6 +21,7 @@ export const GET_ALL_CONTENT = gql`
       }
     }
     aboutContent(language: $language) {
+      heading
       languages {
         level
         label
@@ -37,18 +39,24 @@ export const GET_ALL_CONTENT = gql`
       technologies
     }
     experience(language: $language) {
-      company
-      period
-      role
-      technologies
-      description
+      heading
+      content {
+        company
+        period
+        role
+        technologies
+        description
+      }
     }
     education(language: $language) {
-      degree
-      period
-      faculty
-      institution
-      location
+      heading
+      content {
+        degree
+        period
+        faculty
+        institution
+        location
+      }
     }
   }
 `;

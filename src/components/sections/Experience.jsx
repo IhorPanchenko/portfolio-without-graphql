@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Reveal from "../UI/Reveal";
 
 const Experience = ({ experience }) => {
+  const { heading, content } = experience;
   return (
     <section
       id="experience"
@@ -13,11 +14,11 @@ const Experience = ({ experience }) => {
         initial={{ opacity: 0, y: -100 }}
         transition={{ duration: 0.5 }}
       >
-        Experience
+        {heading}
       </motion.h2>
 
       {/* Map through each experience item and render it */}
-      {experience.map((xp) => (
+      {content.map((xp) => (
         <Reveal key={xp.period}>
           <motion.article
             initial="hidden"
@@ -68,15 +69,18 @@ const Experience = ({ experience }) => {
 };
 
 Experience.propTypes = {
-  experience: PropTypes.arrayOf(
-    PropTypes.shape({
-      period: PropTypes.string.isRequired,
-      company: PropTypes.string.isRequired,
-      role: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      technologies: PropTypes.arrayOf(PropTypes.string).isRequired,
-    })
-  ).isRequired,
+  experience: PropTypes.shape({
+    heading: PropTypes.string.isRequired,
+    content: PropTypes.arrayOf(
+      PropTypes.shape({
+        company: PropTypes.string.isRequired,
+        period: PropTypes.string.isRequired,
+        role: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        technologies: PropTypes.arrayOf(PropTypes.string).isRequired,
+      })
+    ).isRequired,
+  }).isRequired,
 };
 
 export default Experience;

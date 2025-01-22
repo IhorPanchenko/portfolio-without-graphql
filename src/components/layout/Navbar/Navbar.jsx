@@ -70,7 +70,7 @@ const Navbar = ({ navContent, handleLanguageChange, currentLanguage }) => {
         </a>
 
         {/* Desktop Navigation */}
-        <ul className="hidden min-[970px]:flex gap-6 lg:gap-6 xl:gap-12 cursor-pointer">
+        <ul className="hidden min-[1045px]:flex gap-6 lg:gap-6 xl:gap-12 cursor-pointer">
           {navLinks.map((link, index) => (
             <li key={link.name}>
               <Link
@@ -103,7 +103,7 @@ const Navbar = ({ navContent, handleLanguageChange, currentLanguage }) => {
         {/* Hamburger Menu */}
         <button
           onClick={toggleNav}
-          className="min-[970px]:hidden z-50 text-gray-800 dark:text-gray-200 hover:text-purple-400"
+          className="min-[1045px]:hidden z-50 text-gray-800 dark:text-gray-200 hover:text-purple-400"
           aria-label={nav ? "Close navigation menu" : "Open navigation menu"}
         >
           {nav ? <AiOutlineClose size={30} /> : <AiOutlineMenu size={30} />}

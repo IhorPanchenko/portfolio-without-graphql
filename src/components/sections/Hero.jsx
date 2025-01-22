@@ -20,7 +20,7 @@ const SocialMediaLink = ({ href, ariaLabel, icon }) => (
 );
 
 const Hero = ({ heroContent }) => {
-  const { titles, name, bio, socialLinks } = heroContent;
+  const { titles, greetings, name, bio, socialLinks } = heroContent;
 
   return (
     <section className="mt-36 border-b border-gray-700">
@@ -49,7 +49,7 @@ const Hero = ({ heroContent }) => {
               transition={{ duration: 1, delay: 0.5 }}
               className="text-gray-800 dark:text-gray-200 text-3xl text-center lg:text-left md:text-5xl lg:text-6xl tracking-tight mb-4 uppercase"
             >
-              Hey, I am <br />
+              {greetings} <br />
               <span className="text-purple-600 dark:text-purple-500">
                 {name}
               </span>
@@ -129,6 +129,7 @@ const Hero = ({ heroContent }) => {
 Hero.propTypes = {
   heroContent: PropTypes.shape({
     titles: PropTypes.arrayOf(PropTypes.string).isRequired,
+    greetings: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     bio: PropTypes.string.isRequired,
     socialLinks: PropTypes.shape({

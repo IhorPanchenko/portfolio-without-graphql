@@ -4,7 +4,8 @@ import Reveal from "../UI/Reveal";
 import aboutpic from "../../assets/images/aboutpic.jpg";
 
 const About = ({ aboutContent }) => {
-  const { description, languages } = aboutContent;
+  const { heading, description, languages } = aboutContent;
+  const words = heading.split(" ");
 
   return (
     <section
@@ -18,7 +19,7 @@ const About = ({ aboutContent }) => {
         initial={{ opacity: 0, y: -100 }}
         transition={{ duration: 0.5 }}
       >
-        About <span>Me</span>
+        {words[0]} {words[1] && <span>{words[1]}</span>}
       </motion.h2>
 
       <Reveal>
@@ -47,7 +48,7 @@ const About = ({ aboutContent }) => {
             transition={{ duration: 0.5 }}
           >
             <div className="flex flex-col items-center justify-center lg:items-start">
-              <p className="text-lg text-center lg:text-justify max-w-xl md:text-xl">
+              <p className="text-lg text-center lg:text-left max-w-xl md:text-xl">
                 {description}
               </p>
 
@@ -76,6 +77,7 @@ const About = ({ aboutContent }) => {
 
 About.propTypes = {
   aboutContent: PropTypes.shape({
+    heading: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     languages: PropTypes.arrayOf(
       PropTypes.shape({
