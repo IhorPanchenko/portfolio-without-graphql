@@ -2,8 +2,9 @@ import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 import Reveal from "../UI/Reveal";
 
-const Experience = ({ experience }) => {
-  const { heading, content } = experience;
+const Experience = ({ experience, language }) => {
+  const { heading, content } = experience[language] || experience.en;
+
   return (
     <section
       id="experience"
@@ -50,16 +51,16 @@ const Experience = ({ experience }) => {
               </p>
 
               {/* Technologies Used */}
-              <div className="flex flex-wrap">
+              <ul className="flex flex-wrap">
                 {xp.technologies.map((tech) => (
-                  <span
+                  <li
                     key={tech}
                     className="mt-2 mr-2 min-[470px]:mt-4 rounded bg-gray-300 dark:bg-gray-800 px-2 py-1 text-sm min-[470px]:text-base font-medium text-purple-700 dark:text-purple-600"
                   >
                     {tech}
-                  </span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </motion.div>
           </motion.article>
         </Reveal>
@@ -70,17 +71,32 @@ const Experience = ({ experience }) => {
 
 Experience.propTypes = {
   experience: PropTypes.shape({
-    heading: PropTypes.string.isRequired,
-    content: PropTypes.arrayOf(
-      PropTypes.shape({
-        company: PropTypes.string.isRequired,
-        period: PropTypes.string.isRequired,
-        role: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        technologies: PropTypes.arrayOf(PropTypes.string).isRequired,
-      })
-    ).isRequired,
+    en: PropTypes.shape({
+      heading: PropTypes.string.isRequired,
+      content: PropTypes.arrayOf(
+        PropTypes.shape({
+          company: PropTypes.string.isRequired,
+          period: PropTypes.string.isRequired,
+          role: PropTypes.string.isRequired,
+          technologies: PropTypes.arrayOf(PropTypes.string).isRequired,
+          description: PropTypes.string.isRequired,
+        })
+      ).isRequired,
+    }).isRequired,
+    de: PropTypes.shape({
+      heading: PropTypes.string.isRequired,
+      content: PropTypes.arrayOf(
+        PropTypes.shape({
+          company: PropTypes.string.isRequired,
+          period: PropTypes.string.isRequired,
+          role: PropTypes.string.isRequired,
+          technologies: PropTypes.arrayOf(PropTypes.string).isRequired,
+          description: PropTypes.string.isRequired,
+        })
+      ).isRequired,
+    }).isRequired,
   }).isRequired,
+  language: PropTypes.oneOf(["en", "de"]).isRequired,
 };
 
 export default Experience;

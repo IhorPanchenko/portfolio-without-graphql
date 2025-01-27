@@ -10,16 +10,18 @@ import About from "./components/sections/About";
 import Experience from "./components/sections/Experience";
 import ShinyEffect from "./components/UI/ShinyEffect";
 import Education from "./components/sections/Education";
+import experienceData from "./data/experienceData";
+import educationData from "./data/educationData";
 
-export default function App() {
-  const [currentLanguage, setCurrentLanguage] = useState("en");
+const App = () => {
+  const [language, setLanguage] = useState("en");
 
   const { data, loading, error, refetch } = useQuery(GET_ALL_CONTENT, {
-    variables: { language: currentLanguage },
+    variables: { language: language },
   });
 
   const handleLanguageChange = (lang) => {
-    setCurrentLanguage(lang);
+    setLanguage(lang);
     refetch({ language: lang });
   };
 
@@ -31,7 +33,7 @@ export default function App() {
       <Navbar
         navContent={data.navContent}
         handleLanguageChange={handleLanguageChange}
-        currentLanguage={currentLanguage}
+        currentLanguage={language}
       />
 
       <main className="mx-auto max-w-[1300px] px-8">
@@ -39,12 +41,14 @@ export default function App() {
         <About aboutContent={data.aboutContent} />
         <Skills />
         <Portfolio portfolio={data.portfolio} />
-        <Experience experience={data.experience} />
-        <Education education={data.education} />
+        <Experience experience={experienceData} language={language} />
+        <Education education={educationData} language={language} />
       </main>
 
       <ShinyEffect size={1400} />
       <Footer heroContent={data.heroContent} />
     </div>
   );
-}
+};
+
+export default App;

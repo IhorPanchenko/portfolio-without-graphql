@@ -2,8 +2,9 @@ import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 import Reveal from "../UI/Reveal";
 
-const Education = ({ education }) => {
-  const { heading, content } = education;
+const Education = ({ education, language }) => {
+  const { heading, content } = education[language] || education.en;
+
   return (
     <section
       id="education"
@@ -58,17 +59,32 @@ const Education = ({ education }) => {
 
 Education.propTypes = {
   education: PropTypes.shape({
-    heading: PropTypes.string.isRequired,
-    content: PropTypes.arrayOf(
-      PropTypes.shape({
-        degree: PropTypes.string.isRequired,
-        period: PropTypes.string.isRequired,
-        faculty: PropTypes.string.isRequired,
-        institution: PropTypes.string.isRequired,
-        location: PropTypes.string.isRequired,
-      })
-    ).isRequired,
+    en: PropTypes.shape({
+      heading: PropTypes.string.isRequired,
+      content: PropTypes.arrayOf(
+        PropTypes.shape({
+          period: PropTypes.string.isRequired,
+          faculty: PropTypes.string.isRequired,
+          degree: PropTypes.string.isRequired,
+          institution: PropTypes.string.isRequired,
+          location: PropTypes.string.isRequired,
+        })
+      ).isRequired,
+    }).isRequired,
+    de: PropTypes.shape({
+      heading: PropTypes.string.isRequired,
+      content: PropTypes.arrayOf(
+        PropTypes.shape({
+          period: PropTypes.string.isRequired,
+          faculty: PropTypes.string.isRequired,
+          degree: PropTypes.string.isRequired,
+          institution: PropTypes.string.isRequired,
+          location: PropTypes.string.isRequired,
+        })
+      ).isRequired,
+    }).isRequired,
   }).isRequired,
+  language: PropTypes.oneOf(["en", "de"]).isRequired,
 };
 
 export default Education;
