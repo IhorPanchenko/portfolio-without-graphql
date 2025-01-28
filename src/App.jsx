@@ -12,6 +12,7 @@ import Education from "./components/sections/Education";
 import navData from "./data/navData";
 import heroData from "./data/heroData";
 import aboutData from "./data/aboutData";
+import skillsData from "./data/skillsData";
 import portfolioData from "./data/portfolioData";
 import experienceData from "./data/experienceData";
 import educationData from "./data/educationData";
@@ -41,7 +42,7 @@ const App = () => {
         <main className="mx-auto max-w-[1300px] px-8">
           <Hero heroContent={heroData} language={language} />
           <About aboutContent={aboutData} language={language} />
-          <Skills />
+          <Skills skills={skillsData} language={language} />
           <Portfolio portfolio={portfolioData} language={language} />
           <Experience experience={experienceData} language={language} />
           <Education education={educationData} language={language} />

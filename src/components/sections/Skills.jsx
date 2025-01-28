@@ -1,5 +1,5 @@
+import PropTypes from "prop-types";
 import { motion } from "framer-motion";
-import { skills } from "../../data/skillsData";
 import Reveal from "../UI/Reveal";
 
 const iconVariants = (duration) => ({
@@ -15,7 +15,10 @@ const iconVariants = (duration) => ({
   },
 });
 
-const Skills = () => {
+const Skills = ({ skills, language }) => {
+  const { heading, content } = skills[language] || skills.en;
+  const words = heading.split(" ");
+
   return (
     <section
       className="flex flex-col justify-center mx-auto border-b border-gray-700"
@@ -28,28 +31,29 @@ const Skills = () => {
         initial={{ opacity: 0, y: -100 }}
         transition={{ duration: 0.5 }}
       >
-        <span>My </span>Skills
+        <span>{words[0]}</span>
+        {words[1] && ` ${words[1]}`}
       </motion.h2>
 
       <Reveal>
         {/* Skills container */}
         <div className="flex flex-col text-gray-700 dark:text-gray-200 space-y-8 lg:space-y-0">
-          {skills.map((skill) => (
+          {content.map((category) => (
             <article
-              key={skill.category}
+              key={category.name}
               className="w-full pb-8"
-              aria-labelledby={`skill-${skill.category}`}
+              aria-labelledby={`skill-${category.name}`}
             >
               <h3
-                id={`skill-${skill.category}`}
+                id={`skill-${category.name}`}
                 className="text-2xl md:text-3xl font-bold text-left mb-6"
               >
-                {skill.category}
+                {category.name}
               </h3>
 
               {/* Technologies grid */}
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-y-6 lg:gap-x-32">
-                {skill.technologies.map((tech) => (
+                {category.technologies.map((tech) => (
                   <motion.div
                     key={tech.name}
                     variants={iconVariants(tech.duration)}
@@ -75,6 +79,42 @@ const Skills = () => {
       </Reveal>
     </section>
   );
+};
+
+Skills.propTypes = {
+  skills: PropTypes.shape({
+    en: PropTypes.shape({
+      heading: PropTypes.string.isRequired,
+      content: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string.isRequired,
+          technologies: PropTypes.arrayOf(
+            PropTypes.shape({
+              name: PropTypes.string.isRequired,
+              icon: PropTypes.element.isRequired,
+              duration: PropTypes.number.isRequired,
+            }).isRequired
+          ).isRequired,
+        }).isRequired
+      ).isRequired,
+    }).isRequired,
+    de: PropTypes.shape({
+      heading: PropTypes.string.isRequired,
+      content: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string.isRequired,
+          technologies: PropTypes.arrayOf(
+            PropTypes.shape({
+              name: PropTypes.string.isRequired,
+              icon: PropTypes.element.isRequired,
+              duration: PropTypes.number.isRequired,
+            }).isRequired
+          ).isRequired,
+        }).isRequired
+      ).isRequired,
+    }).isRequired,
+  }).isRequired,
+  language: PropTypes.oneOf(["en", "de"]).isRequired,
 };
 
 export default Skills;
