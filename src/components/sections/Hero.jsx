@@ -19,8 +19,9 @@ const SocialMediaLink = ({ href, ariaLabel, icon }) => (
   </motion.a>
 );
 
-const Hero = ({ heroContent }) => {
-  const { titles, greetings, name, bio, socialLinks } = heroContent;
+const Hero = ({ heroContent, language }) => {
+  const { titles, greetings, name, bio, socialLinks } =
+    heroContent[language] || heroContent.en;
 
   return (
     <section className="mt-36 border-b border-gray-700">
@@ -127,17 +128,31 @@ const Hero = ({ heroContent }) => {
 };
 
 Hero.propTypes = {
-  heroContent: PropTypes.shape({
-    titles: PropTypes.arrayOf(PropTypes.string).isRequired,
-    greetings: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    bio: PropTypes.string.isRequired,
-    socialLinks: PropTypes.shape({
-      github: PropTypes.string,
-      linkedin: PropTypes.string,
-      email: PropTypes.string,
+  heroData: PropTypes.shape({
+    en: PropTypes.shape({
+      greetings: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      bio: PropTypes.string.isRequired,
+      titles: PropTypes.arrayOf(PropTypes.string).isRequired,
+      socialLinks: PropTypes.shape({
+        github: PropTypes.string.isRequired,
+        linkedin: PropTypes.string.isRequired,
+        email: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
+    de: PropTypes.shape({
+      greetings: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      bio: PropTypes.string.isRequired,
+      titles: PropTypes.arrayOf(PropTypes.string).isRequired,
+      socialLinks: PropTypes.shape({
+        github: PropTypes.string.isRequired,
+        linkedin: PropTypes.string.isRequired,
+        email: PropTypes.string.isRequired,
+      }).isRequired,
     }).isRequired,
   }).isRequired,
+  language: PropTypes.oneOf(["en", "de"]).isRequired,
 };
 
 export default Hero;

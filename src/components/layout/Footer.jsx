@@ -2,8 +2,8 @@ import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 import { FaGithubSquare, FaLinkedin } from "react-icons/fa";
 
-const Footer = ({ heroContent }) => {
-  const { name, socialLinks } = heroContent;
+const Footer = ({ footerContent, language }) => {
+  const { name, socialLinks } = footerContent[language] || footerContent.en;
   const { github, linkedin, email } = socialLinks;
 
   return (

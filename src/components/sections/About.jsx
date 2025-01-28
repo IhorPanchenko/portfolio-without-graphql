@@ -3,8 +3,9 @@ import { motion } from "framer-motion";
 import Reveal from "../UI/Reveal";
 import aboutpic from "../../assets/images/aboutpic.jpg";
 
-const About = ({ aboutContent }) => {
-  const { heading, description, languages } = aboutContent;
+const About = ({ aboutContent, language }) => {
+  const { heading, description, languages } =
+    aboutContent[language] || aboutContent.en;
   const words = heading.split(" ");
 
   return (
@@ -77,15 +78,28 @@ const About = ({ aboutContent }) => {
 
 About.propTypes = {
   aboutContent: PropTypes.shape({
-    heading: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    languages: PropTypes.arrayOf(
-      PropTypes.shape({
-        level: PropTypes.string.isRequired,
-        label: PropTypes.string.isRequired,
-      })
-    ).isRequired,
+    en: PropTypes.shape({
+      heading: PropTypes.string.isRequired,
+      languages: PropTypes.arrayOf(
+        PropTypes.shape({
+          level: PropTypes.string.isRequired,
+          label: PropTypes.string.isRequired,
+        })
+      ).isRequired,
+      description: PropTypes.string.isRequired,
+    }).isRequired,
+    de: PropTypes.shape({
+      heading: PropTypes.string.isRequired,
+      languages: PropTypes.arrayOf(
+        PropTypes.shape({
+          level: PropTypes.string.isRequired,
+          label: PropTypes.string.isRequired,
+        })
+      ).isRequired,
+      description: PropTypes.string.isRequired,
+    }).isRequired,
   }).isRequired,
+  language: PropTypes.oneOf(["en", "de"]).isRequired,
 };
 
 export default About;

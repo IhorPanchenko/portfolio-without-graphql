@@ -23,14 +23,14 @@ const menuVariants = {
   },
 };
 
-const Navbar = ({ navContent, handleLanguageChange, currentLanguage }) => {
+const Navbar = ({ navContent, handleLanguageChange, language }) => {
   const [nav, setNav] = useState(false);
   const [offset, setOffset] = useState(0);
   const [currentTab, setCurrentTab] = useState(null);
   const [theme, setTheme] = useDarkMode();
   const navRef = useRef(null);
 
-  const { navLinks } = navContent;
+  const { navLinks } = navContent[language] || navContent.en;
 
   useEffect(() => {
     if (navRef.current) {
@@ -96,7 +96,7 @@ const Navbar = ({ navContent, handleLanguageChange, currentLanguage }) => {
           {/* Language Switcher  */}
           <LanguageSwitcher
             handleLanguageChange={handleLanguageChange}
-            currentLanguage={currentLanguage}
+            language={language}
           />
         </ul>
 
@@ -138,7 +138,7 @@ const Navbar = ({ navContent, handleLanguageChange, currentLanguage }) => {
             {/* Language Switcher  */}
             <LanguageSwitcher
               handleLanguageChange={handleLanguageChange}
-              currentLanguage={currentLanguage}
+              language={language}
             />
           </ul>
         </motion.div>
