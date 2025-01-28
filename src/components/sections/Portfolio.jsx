@@ -1,8 +1,11 @@
+import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 import { AiOutlineGithub } from "react-icons/ai";
 import Reveal from "../UI/Reveal";
 
-const Portfolio = ({ portfolio }) => {
+const Portfolio = ({ portfolio, language }) => {
+  const portfolioData = portfolio[language] || portfolio.en;
+
   return (
     <section
       className="flex flex-col border-b border-gray-700 pb-20"
@@ -12,7 +15,6 @@ const Portfolio = ({ portfolio }) => {
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -100 }}
         transition={{ duration: 0.5 }}
-        // viewport={{ once: true }}
       >
         Portfolio
       </motion.h2>
@@ -20,7 +22,7 @@ const Portfolio = ({ portfolio }) => {
       <Reveal>
         {/* Container for the project cards */}
         <div className="flex flex-wrap justify-center min-[885px]:justify-between gap-y-16 w-full">
-          {portfolio.map((project) => {
+          {portfolioData.map((project) => {
             const { img, title, description, projectLinks } = project;
 
             return (
@@ -69,6 +71,36 @@ const Portfolio = ({ portfolio }) => {
       </Reveal>
     </section>
   );
+};
+
+Portfolio.propTypes = {
+  portfolio: PropTypes.shape({
+    en: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        img: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        projectLinks: PropTypes.shape({
+          site: PropTypes.string.isRequired,
+          github: PropTypes.string.isRequired,
+        }).isRequired,
+        technologies: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+      })
+    ).isRequired,
+    de: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        img: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        projectLinks: PropTypes.shape({
+          site: PropTypes.string.isRequired,
+          github: PropTypes.string.isRequired,
+        }).isRequired,
+        technologies: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+      })
+    ).isRequired,
+  }).isRequired,
+  language: PropTypes.oneOf(["en", "de"]).isRequired,
 };
 
 export default Portfolio;

@@ -10,6 +10,7 @@ import About from "./components/sections/About";
 import Experience from "./components/sections/Experience";
 import ShinyEffect from "./components/UI/ShinyEffect";
 import Education from "./components/sections/Education";
+import portfolioData from "./data/portfolioData";
 import experienceData from "./data/experienceData";
 import educationData from "./data/educationData";
 
@@ -40,7 +41,7 @@ const App = () => {
         <Hero heroContent={data.heroContent} />
         <About aboutContent={data.aboutContent} />
         <Skills />
-        <Portfolio portfolio={data.portfolio} />
+        <Portfolio portfolio={portfolioData} language={language} />
         <Experience experience={experienceData} language={language} />
         <Education education={educationData} language={language} />
       </main>
