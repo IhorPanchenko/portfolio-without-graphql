@@ -1,8 +1,14 @@
+import taskBoardImg from "../assets/images/task-board.jpg";
+import formValidationImg from "../assets/images/form-validation.jpg";
+import portfolioImg from "../assets/images/portfolio.jpg";
+import watchlistImg from "../assets/images/watchlist.jpg";
+import forecastImg from "../assets/images/forecast.jpg";
+
 const portfolioData = {
   en: [
     {
       title: "Taskboard",
-      img: "src/assets/images/task-board.jpg",
+      img: taskBoardImg,
       description:
         "A task management app built with React, Vite, and Tailwind CSS.",
       projectLinks: {
@@ -18,7 +24,7 @@ const portfolioData = {
     },
     {
       title: "Form Validation",
-      img: "src/assets/images/form-validation.jpg",
+      img: formValidationImg,
       description:
         "A React-based project demonstrating client-side form validation using regular expressions.",
       projectLinks: {
@@ -29,7 +35,7 @@ const portfolioData = {
     },
     {
       title: "Portfolio Website",
-      img: "src/assets/images/portfolio.jpg",
+      img: portfolioImg,
       description:
         "A personal portfolio website showcasing projects, education, and experience.",
       projectLinks: {
@@ -40,7 +46,7 @@ const portfolioData = {
     },
     {
       title: "Movie Watchlist",
-      img: "src/assets/images/watchlist.jpg",
+      img: watchlistImg,
       description:
         "Search and save movies to a personal watchlist with an intuitive and responsive interface.",
       projectLinks: {
@@ -51,7 +57,7 @@ const portfolioData = {
     },
     {
       title: "Weather Forecast",
-      img: "src/assets/images/forecast.jpg",
+      img: forecastImg,
       description:
         "Utilizes an API key to fetch and display current weather details.",
       projectLinks: {
@@ -64,7 +70,7 @@ const portfolioData = {
   de: [
     {
       title: "Taskboard",
-      img: "src/assets/images/task-board.jpg",
+      img: taskBoardImg,
       description:
         "Eine Aufgabenmanagement-App, entwickelt mit React, Vite und Tailwind CSS.",
       projectLinks: {
@@ -80,7 +86,7 @@ const portfolioData = {
     },
     {
       title: "Formularvalidierung",
-      img: "src/assets/images/form-validation.jpg",
+      img: formValidationImg,
       description:
         "Ein React-Projekt zur Demonstration der clientseitigen Formularvalidierung mit regulären Ausdrücken.",
       projectLinks: {
@@ -91,7 +97,7 @@ const portfolioData = {
     },
     {
       title: "Portfolio-Website",
-      img: "src/assets/images/portfolio.jpg",
+      img: portfolioImg,
       description:
         "Eine persönliche Portfolio-Website mit Projekten, Bildung und Erfahrung.",
       projectLinks: {
@@ -102,7 +108,7 @@ const portfolioData = {
     },
     {
       title: "Film-Watchlist",
-      img: "src/assets/images/watchlist.jpg",
+      img: watchlistImg,
       description:
         "Durchsuchen und speichern Sie Filme in einer persönlichen Watchlist mit einer intuitiven und responsiven Benutzeroberfläche.",
       projectLinks: {
@@ -113,7 +119,7 @@ const portfolioData = {
     },
     {
       title: "Wettervorhersage",
-      img: "src/assets/images/forecast.jpg",
+      img: forecastImg,
       description:
         "Verwendet einen API-Schlüssel, um aktuelle Wetterdetails abzurufen und anzuzeigen.",
       projectLinks: {
