@@ -7,7 +7,7 @@ const LanguageSwitcher = ({ handleLanguageChange, currentLanguage }) => {
           currentLanguage === "en"
             ? "text-purple-700 dark:text-purple-400 font-bold"
             : ""
-        }`}
+        }transition duration-300`}
       >
         EN
       </button>
@@ -17,7 +17,7 @@ const LanguageSwitcher = ({ handleLanguageChange, currentLanguage }) => {
           currentLanguage === "de"
             ? "text-purple-700 dark:text-purple-400 font-bold"
             : ""
-        }`}
+        }transition duration-300`}
       >
         DE
       </button>

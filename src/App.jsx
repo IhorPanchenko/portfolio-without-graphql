@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import Navbar from "./components/layout/Navbar/Navbar";
 import Footer from "./components/layout/Footer";
 import Hero from "./components/sections/Hero";
@@ -20,28 +21,35 @@ const App = () => {
 
   const handleLanguageChange = (lang) => {
     setLanguage(lang);
-    refetch({ language: lang });
   };
 
   return (
     <div className="relative overflow-hidden selection:bg-purple-400 selection:text-gray-800">
-      <Navbar
-        navContent={navData}
-        handleLanguageChange={handleLanguageChange}
-        language={language}
-      />
+      <motion.div
+        key={language}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <Navbar
+          navContent={navData}
+          handleLanguageChange={handleLanguageChange}
+          language={language}
+        />
 
-      <main className="mx-auto max-w-[1300px] px-8">
-        <Hero heroContent={heroData} language={language} />
-        <About aboutContent={aboutData} language={language} />
-        <Skills />
-        <Portfolio portfolio={portfolioData} language={language} />
-        <Experience experience={experienceData} language={language} />
-        <Education education={educationData} language={language} />
-      </main>
+        <main className="mx-auto max-w-[1300px] px-8">
+          <Hero heroContent={heroData} language={language} />
+          <About aboutContent={aboutData} language={language} />
+          <Skills />
+          <Portfolio portfolio={portfolioData} language={language} />
+          <Experience experience={experienceData} language={language} />
+          <Education education={educationData} language={language} />
+        </main>
 
-      <ShinyEffect size={1400} />
-      <Footer footerContent={heroData} />
+        <ShinyEffect size={1400} />
+        <Footer footerContent={heroData} language={language} />
+      </motion.div>
     </div>
   );
 };

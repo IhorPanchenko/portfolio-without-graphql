@@ -128,7 +128,7 @@ const Hero = ({ heroContent, language }) => {
 };
 
 Hero.propTypes = {
-  heroData: PropTypes.shape({
+  heroContent: PropTypes.shape({
     en: PropTypes.shape({
       greetings: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,

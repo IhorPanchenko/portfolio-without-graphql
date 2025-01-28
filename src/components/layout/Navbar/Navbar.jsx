@@ -96,7 +96,7 @@ const Navbar = ({ navContent, handleLanguageChange, language }) => {
           {/* Language Switcher  */}
           <LanguageSwitcher
             handleLanguageChange={handleLanguageChange}
-            language={language}
+            currentLanguage={language}
           />
         </ul>
 
@@ -138,7 +138,7 @@ const Navbar = ({ navContent, handleLanguageChange, language }) => {
             {/* Language Switcher  */}
             <LanguageSwitcher
               handleLanguageChange={handleLanguageChange}
-              language={language}
+              currentLanguage={language}
             />
           </ul>
         </motion.div>

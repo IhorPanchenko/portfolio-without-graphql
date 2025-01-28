@@ -51,12 +51,22 @@ const Footer = ({ footerContent, language }) => {
 };
 
 Footer.propTypes = {
-  heroContent: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    socialLinks: PropTypes.shape({
-      github: PropTypes.string.isRequired,
-      linkedin: PropTypes.string.isRequired,
-      email: PropTypes.string.isRequired,
+  footerContent: PropTypes.shape({
+    en: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      socialLinks: PropTypes.shape({
+        github: PropTypes.string.isRequired,
+        linkedin: PropTypes.string.isRequired,
+        email: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
+    de: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      socialLinks: PropTypes.shape({
+        github: PropTypes.string.isRequired,
+        linkedin: PropTypes.string.isRequired,
+        email: PropTypes.string.isRequired,
+      }).isRequired,
     }).isRequired,
   }).isRequired,
 };
